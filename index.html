@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>বেতন নির্ধারণ বিবরণী ২০২৬ — বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@500;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f7f6; --panel:#fff; --panel-2:#f7fafb; --accent:#007d5d; --accent-2:#0b5f4d;
+  --text:#111; --text-muted:#536a73; --border:#d7d7d7; --good:#087f65;
+  --shadow:0 6px 20px rgba(0,0,0,.06); --warn:#9a5b00; --danger:#9c3b2e;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:'Hind Siliguri',sans-serif; font-size:15px; line-height:1.55;
+  min-height:100vh;
+}
+.wrap{max-width:1100px; margin:0 auto; padding:24px 20px 48px;}
+.topnav{
+  height:64px; margin:0 -20px 22px; padding:0 24px; background:#fff;
+  border-bottom:1px solid #d5d5d5; display:flex; align-items:center; justify-content:space-between;
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:17px;}
+.brand-logo{
+  width:42px; height:42px; object-fit:contain; display:block; flex-shrink:0;
+}
+.nav-pill{
+  border:0; border-radius:18px; padding:8px 14px; background:#f2c94c; color:#124434;
+  font:600 12px inherit; cursor:pointer;
+}
+header{
+  background:var(--panel); border:1px solid var(--border); border-radius:16px;
+  padding:20px 22px; margin-bottom:18px; box-shadow:var(--shadow);
+}
+.eyebrow{color:var(--accent); font-size:13px; font-weight:700;}
+h1{
+  font-family:'Noto Serif Bengali',serif; font-size:clamp(22px,3vw,30px);
+  margin:4px 0 6px; line-height:1.3;
+}
+.sub{color:var(--text-muted); font-size:14px; margin:0; max-width:820px;}
+.layout{display:grid; grid-template-columns:minmax(300px,.9fr) minmax(0,1.2fr); gap:18px; align-items:start;}
+.panel{
+  background:var(--panel); border:1px solid var(--border); border-radius:16px;
+  padding:18px; box-shadow:var(--shadow); margin:0;
+}
+.panel h2{font-family:'Noto Serif Bengali',serif; font-size:17px; margin:0 0 12px;}
+label{display:block; font-size:12px; color:var(--text-muted); margin-bottom:5px; font-weight:600;}
+input,select{
+  width:100%; padding:11px 12px; font-size:14px; font-family:inherit; color:var(--text);
+  background:var(--panel-2); border:1px solid #e1eaed; border-radius:9px;
+}
+input:focus,select:focus{outline:2px solid var(--accent); outline-offset:1px;}
+input[readonly]{background:#eef3f2; color:#333;}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+.search-row{display:grid; grid-template-columns:1fr auto; gap:10px; align-items:end;}
+.btn{
+  border:0; border-radius:9px; padding:11px 16px; font:600 14px inherit; cursor:pointer;
+  background:var(--accent); color:#fff; white-space:nowrap;
+}
+.btn:hover{filter:brightness(.95);}
+.btn.secondary{background:#f2c94c; color:#174839;}
+.status{
+  margin-top:10px; font-size:13px; padding:9px 12px; border-radius:8px;
+  background:#edf7f3; color:var(--accent); border:1px solid #d5ede4;
+}
+.status.error{background:#fceeee; color:var(--danger); border-color:#f0d0d0;}
+.status.warn{background:#fff7e8; color:var(--warn); border-color:#f0e0b8;}
+.hidden{display:none !important;}
+.result-head{display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:6px;}
+.badge{font-size:12px; background:#edf7f3; color:var(--accent); padding:4px 10px; border-radius:20px; border:1px solid #d5ede4;}
+.bigpay{font-family:'Noto Serif Bengali',serif; font-size:clamp(30px,6vw,42px); font-weight:700; color:var(--accent); margin:8px 0 2px;}
+.bigpay-label{font-size:13px; color:var(--text-muted);}
+.increment{font-size:14px; color:var(--good); margin-top:4px;}
+.metric-strip{display:grid; grid-template-columns:repeat(4,1fr); gap:9px; margin:16px 0 2px;}
+.metric{background:#fff; border:1px solid #d7d7d7; border-radius:10px; padding:9px 10px;}
+.metric-label{font-size:11px; color:#424242;}
+.metric-value{font-size:16px; font-weight:700; margin-top:2px;}
+.phases{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:14px;}
+.phase{padding:12px; background:#fff; border:1px solid #d7d7d7; border-radius:10px;}
+.phase.final{border-color:var(--accent);}
+.phase .p-label{font-size:13px; color:var(--text-muted);}
+.phase .p-date{font-size:12px; color:#666;}
+.phase .p-amount{font-family:'Noto Serif Bengali',serif; font-weight:700; font-size:18px; margin-top:8px;}
+.note{font-size:12.5px; color:var(--text-muted); line-height:1.6; margin-top:12px; background:#f5f5f5; padding:10px 12px; border-radius:9px;}
+.statement{margin-top:16px;}
+.tablewrap{overflow-x:auto; border:1px solid var(--border); border-radius:10px;}
+table{width:100%; border-collapse:collapse; font-size:12.5px; margin:0;}
+th,td{padding:7px 8px; border-bottom:1px solid #edf1f2; vertical-align:top;}
+th{background:#f2f7f8; color:#5d7078; font-weight:600; text-align:left;}
+.statement-detail-table th:first-child,.statement-detail-table td:first-child{width:8%; text-align:center;}
+.statement-detail-table th:nth-child(2),.statement-detail-table td:nth-child(2){width:67%;}
+.statement-detail-table th:last-child,.statement-detail-table td:last-child{width:25%; text-align:right; font-weight:600;}
+.statement-detail-table tr.highlight td:last-child{background:#eaf4dd;}
+.statement-detail-table tr.warm td:last-child{background:#f8e4ca;}
+.statement-detail-table tr.pink td:last-child{background:#f3dddd;}
+.actions{display:flex; justify-content:flex-end; gap:8px; margin-top:14px;}
+footer{
+  margin-top:24px; padding:18px 4px 0; border-top:1px solid var(--border);
+  font-size:12px; color:var(--text-muted); line-height:1.7;
+}
+.official-report{display:none;}
+@media(max-width:860px){
+  .layout{grid-template-columns:1fr;}
+  .phases{grid-template-columns:1fr;}
+  .metric-strip{grid-template-columns:repeat(2,1fr);}
+  .grid2{grid-template-columns:1fr;}
+  .topnav{margin-left:-20px; margin-right:-20px;}
+}
+@page{
+  size: legal portrait;
+  margin: 12mm 10mm 12mm 10mm;
+}
+@media print{
+  html,body{background:#fff !important; color:#000 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+  .wrap{max-width:none; padding:0; margin:0;}
+  .topnav,header,.controls-column,.screen-only,footer,.actions{display:none !important;}
+  .layout,.results-column{display:block !important;}
+  .panel{border:0; box-shadow:none; padding:0; margin:0; background:transparent;}
+  .official-report{
+    display:block !important;
+    font-family:'Noto Serif Bengali','Hind Siliguri',serif;
+    color:#000; font-size:11.5px; line-height:1.35;
+  }
+  .official-header{
+    display:grid; grid-template-columns:70px 1fr 70px; align-items:center;
+    gap:8px; margin-bottom:6px; text-align:center;
+  }
+  .official-header .print-logo{width:68px; height:68px; object-fit:contain;}
+  .official-header .header-text h1{font-size:20px; margin:0; font-weight:700;}
+  .official-header .header-text p{margin:1px 0; font-size:13px;}
+  .official-title{
+    text-align:center; font-size:12.5px; font-weight:700;
+    border-top:1px solid #000; border-bottom:1px solid #000;
+    padding:5px 4px; margin:0 0 6px;
+  }
+  .official-table{width:100%; border-collapse:collapse; margin:0; table-layout:fixed;}
+  .official-table td{
+    border:1px solid #000; padding:3px 5px; vertical-align:middle; text-align:left;
+    font-size:11px;
+  }
+  .official-table td.sl{width:28px; text-align:center; font-weight:700;}
+  .official-table td.label{width:auto;}
+  .official-table td.colon{width:16px; text-align:center;}
+  .official-table td.val{width:150px; text-align:right; font-weight:600; white-space:pre-line;}
+  .official-table td.val.left{text-align:left;}
+  .official-table tr.id-row td{font-weight:700;}
+  .official-table tr.green td.val{background:#c6efce;}
+  .official-table tr.blue td.val{background:#bdd7ee;}
+  .official-table tr.peach td.val,.official-table tr.peach td.label{background:#fce4d6;}
+  .official-table tr.pink td.val{background:#f8cbad;}
+  .official-table tr.lilac td.val{background:#e2d5f1;}
+  .employee-sign{text-align:right; margin:36px 8px 18px; font-size:12px;}
+  .employee-sign span{display:inline-block; border-top:1px dotted #000; padding-top:6px; min-width:280px; text-align:center;}
+  .official-signatures{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+    margin-top:56px; margin-bottom:12px; text-align:center; font-size:12px;
+  }
+  .official-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 18px;}
+  .audit-block{margin-top:48px; padding-top:10px;}
+  .audit-title{
+    text-align:center; font-size:14px; font-weight:700;
+    border-bottom:1px solid #000; padding-bottom:3px; margin:0 0 10px;
+  }
+  .audit-note{margin:0 0 12px; font-size:11.5px;}
+  .audit-signatures{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+    margin-top:56px; text-align:center; font-size:12px;
+  }
+  .audit-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 18px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="topnav">
+    <div class="brand">
+      <img class="brand-logo" src="images/butex-logo-png_seeklogo-427477.png" alt="BUTEX logo" width="42" height="42">
+      <span>বেতন নির্ধারণ — BUTEX</span>
+    </div>
+    <button class="nav-pill" type="button" id="navPrint">প্রিন্ট / PDF</button>
+  </nav>
+
+  <header>
+    <div class="eyebrow">এসআরও নং ৩৪৮-আইন/২০২৬ · তারিখ: ১৭ সেপ্টেম্বর ২০২৬</div>
+    <h1>জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী বেতন নির্ধারণ বিবরণী</h1>
+    <p class="sub">বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়। ক্রমিক নম্বর দিলে কর্মকর্তা/কর্মচারীর তথ্য ও বেতন নির্ধারণ হিসাব স্বয়ংক্রিয়ভাবে আসবে। প্রিন্ট করে অফিসিয়াল ফর্ম পাওয়া যাবে।</p>
+  </header>
+
+  <div class="layout">
+    <div class="controls-column">
+      <div class="panel">
+        <h2>ক্রমিক নম্বর দিয়ে খুঁজুন</h2>
+        <div class="search-row">
+          <div>
+            <label for="serialInput">ক্রমিক নং (Serial No)</label>
+            <input id="serialInput" type="number" min="1" max="409" placeholder="যেমন: 218" autofocus>
+          </div>
+          <button class="btn" type="button" id="searchBtn">তথ্য আনুন</button>
+        </div>
+        <div id="statusBox" class="status hidden"></div>
+      </div>
+
+      <div class="panel">
+        <h2>কর্মকর্তা/কর্মচারীর তথ্য</h2>
+        <div class="grid2">
+          <div><label for="employeeName">নাম</label><input id="employeeName" type="text" readonly></div>
+          <div><label for="currentPost">বর্তমান পদ (৩০-০৬-২০২৬)</label><input id="currentPost" type="text" readonly></div>
+          <div><label for="joiningDate">বর্তমান পদে যোগদানের তারিখ</label><input id="joiningDate" type="date"></div>
+          <div><label for="department">বিভাগ/দপ্তর</label><input id="department" type="text" readonly></div>
+          <div><label for="phone">মোবাইল/সেল ফোন</label><input id="phone" type="tel" readonly></div>
+          <div><label for="nationalId">জাতীয় পরিচয়পত্র নম্বর</label><input id="nationalId" type="text" readonly></div>
+          <div>
+            <label for="grade">প্রাপ্য গ্রেড</label>
+            <select id="grade"></select>
+          </div>
+          <div>
+            <label for="step">৩০ জুন ২০২৬-এর মূল বেতন (২০১৫ স্কেল)</label>
+            <select id="step"></select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="results-column">
+      <div class="panel screen-only" id="resultPanel">
+        <div class="result-head">
+          <h2>নির্ধারিত বেতন</h2>
+          <span class="badge" id="stepBadge">—</span>
+        </div>
+        <div class="bigpay-label">১ জুলাই ২০২৬ থেকে জাতীয় বেতনস্কেল, ২০২৬-এ নির্ধারিত মূল বেতন</div>
+        <div class="bigpay" id="newPay">—</div>
+        <div class="increment" id="incLine"></div>
+
+        <div class="metric-strip">
+          <div class="metric"><div class="metric-label">বর্তমান মূল বেতন</div><div class="metric-value" id="metricCurrent">—</div></div>
+          <div class="metric"><div class="metric-label">প্রাপ্য গ্রেড</div><div class="metric-value" id="metricGrade">—</div></div>
+          <div class="metric"><div class="metric-label">জুলাই ২০২৬</div><div class="metric-value" id="metricJuly">—</div></div>
+          <div class="metric"><div class="metric-label">পূর্ণ কার্যকর</div><div class="metric-value" id="metricFull">—</div></div>
+        </div>
+
+        <div class="phases">
+          <div class="phase">
+            <div class="p-label">১ম ধাপ — বৃদ্ধির অংশ প্রদান</div>
+            <div class="p-date">১ জুলাই – ৩১ ডিসেম্বর ২০২৬</div>
+            <div class="p-amount" id="phase1">—</div>
+          </div>
+          <div class="phase">
+            <div class="p-label">২য় ধাপ — বৃদ্ধির অংশ প্রদান</div>
+            <div class="p-date">১ জানুয়ারি – ৩০ জুন ২০২৭</div>
+            <div class="p-amount" id="phase2">—</div>
+          </div>
+          <div class="phase final">
+            <div class="p-label">৩য় ধাপ — শতভাগ কার্যকর</div>
+            <div class="p-date">১ জুলাই ২০২৭ থেকে (বার্ষিক ইনক্রিমেন্টসহ)</div>
+            <div class="p-amount" id="phase3">—</div>
+          </div>
+        </div>
+        <div class="note" id="pctNote">ক্রমিক নম্বর দিয়ে তথ্য আনুন।</div>
+
+        <div class="statement">
+          <div class="result-head"><h2>ফর্মের বিস্তারিত হিসাব</h2><span class="badge">জাতীয় বেতন স্কেল ২০২৬</span></div>
+          <div class="tablewrap">
+            <table class="statement-detail-table">
+              <thead><tr><th>ক্রম</th><th>বিস্তারিত হিসাব</th><th>টাকা</th></tr></thead>
+              <tbody id="statementBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="actions">
+          <button class="btn secondary" type="button" id="printBtn">প্রিন্ট / PDF</button>
+        </div>
+      </div>
+
+      <section class="official-report" id="officialReport">
+        <div class="official-header">
+          <img class="print-logo" src="images/butex-logo-png_seeklogo-427477.png" alt="BUTEX">
+          <div class="header-text">
+            <h1>বাংলাদেশ টেক্সটাইল বিশ্ববিদ্যালয়</h1>
+            <p>অর্থ ও হিসাব দপ্তর</p>
+            <p>তেজগাঁও, ঢাকা - ১২০৮।</p>
+          </div>
+          <div></div>
+        </div>
+        <div class="official-title">এস.আর.ও নং ৩৪৮-আইন/২০২৬, তারিখ -১৭-৯-২০২৬ জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী বেতন নির্ধারণী বিবরণী :</div>
+        <table class="official-table"><tbody id="officialBody"></tbody></table>
+        <div class="employee-sign"><span>শিক্ষক/ কর্মকর্তা/কর্মচারীর স্বাক্ষর ও সীল</span></div>
+        <div class="official-signatures">
+          <div>প্রস্তুতকারক</div>
+          <div>উপ-পরিচালক (স্যালারি)</div>
+          <div>পরিচালক (অর্থ ও হিসাব)</div>
+        </div>
+        <div class="audit-block">
+          <div class="audit-title">অডিট অফিসের ব্যবহারের জন্য</div>
+          <p class="audit-note">উক্ত বেতন বিবরণী নিরীক্ষা করা হইল। জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী নিম্নরূপভাবে বেতন নির্ধারণ করা হইল</p>
+          <table class="official-table"><tbody id="auditBody"></tbody></table>
+          <div class="audit-signatures">
+            <div>প্রস্তুতকারক</div>
+            <div>সহ-পরিচালক (অডিট)</div>
+            <div>পরিচালক (অডিট)</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer>
+    সরকারি চাকরি আইন, ২০১৮-এর ধারা ১৫ বলে জারিকৃত "চাকরি (বেতন ও ভাতাদি) আদেশ, ২০২৬" (এসআরও নং ৩৪৮-আইন/২০২৬, তারিখ ১৭ সেপ্টেম্বর ২০২৬) অনুযায়ী হিসাব করা হয়েছে। কর্মকর্তা/কর্মচারীর তথ্য এক্সেল তথ্যসূত্র (Information) থেকে নেওয়া। প্রকৃত বেতন নির্ধারণের জন্য অফিসের হিসাব শাখা/iBAS++ দিয়ে যাচাই করে নিন — এটি সহায়ক হিসাব, চূড়ান্ত সিদ্ধান্ত নয়।
+  </footer>
+</div>
+
+<script>
+const SCALES = {
+1:{old:[78000],new:[156000],fixed:true},
+2:{old:[66000,68480,71050,73720,76490],new:[132000,135700,139400,143200,147200,151200,153000]},
+3:{old:[56500,58760,61120,63570,66120,68770,71530,74400],new:[113000,117000,121100,125300,129700,134300,139000,143800,148800]},
+4:{old:[50000,52000,54080,56250,58500,60840,63280,65820,68460,71200],new:[100000,103500,107200,110900,114800,118800,123000,127300,131700,136300,142400]},
+5:{old:[43000,44940,46970,49090,51300,53650,56030,58560,61200,63960,66840,69850],new:[86000,89500,93100,96800,100700,104700,108900,113200,117700,122500,127400,132400,139700]},
+6:{old:[35500,37280,39150,41110,43170,45330,47600,49980,52480,55110,57870,60770,63810,67010],new:[71000,74600,78300,82200,86400,90700,95200,100000,104900,110200,115700,121500,127600,134000]},
+7:{old:[29000,30450,31980,33580,35260,37030,38890,40840,42890,45040,47300,49670,52160,54770,57510,60390,63410],new:[58000,60900,64000,67200,70500,74100,77800,81700,85700,90000,94500,99200,104200,109400,114900,120600,126800]},
+8:{old:[23000,24150,25360,26630,27970,29370,30840,32390,34010,35720,37510,39390,41360,43430,45610,47900,50300,52820,55470],new:[46000,48300,50800,53300,56000,58800,61700,64800,68000,71400,75000,78700,82700,86800,91100,95700,100500,105500,110800]},
+9:{old:[22000,23100,24260,25480,26760,28100,29510,30990,32540,34170,35880,37680,39570,41550,43630,45810,48120,50530,53060],new:[44000,46200,48600,51000,53500,56200,59000,62000,65100,68300,71700,75300,79100,83000,87200,91500,96100,100900,105900]},
+10:{old:[16000,16800,17640,18530,19460,20440,21470,22550,23680,24870,26120,27430,28810,30260,31780,33370,35040,36800,38640],new:[32000,33600,35300,37100,38900,40900,42900,45100,47300,49700,52200,54800,57500,60400,63400,66600,69900,73400,77300]},
+11:{old:[12500,13130,13790,14480,15210,15980,16780,17620,18510,19440,20420,21440,22530,23660,24850,26100,27410,28790,30230],new:[25000,26300,27600,29000,30400,32000,33600,35200,37000,38800,40800,42800,44900,47100,49400,51800,54300,56900,60500]},
+12:{old:[11300,11870,12470,13100,13760,14450,15180,15940,16740,17580,18460,19390,20360,21380,22450,23580,24760,26000,27300],new:[24300,25600,26800,28200,29600,31100,32600,34200,36000,37700,39600,41600,43700,45900,48200,50600,53100,55700,58700]},
+13:{old:[11000,11550,12130,12740,13380,14050,14760,15500,16280,17100,17960,18860,19810,20810,21860,22960,24110,25320,26590],new:[24000,25200,26500,27800,29200,30700,32200,33800,35500,37300,39100,41100,43200,45300,47600,49900,52400,55100,58000]},
+14:{old:[10200,10710,11250,11820,12420,13050,13710,14400,15120,15880,16680,17520,18400,19320,20290,21310,22380,23500,24680],new:[23500,24700,26000,27300,28600,30000,31500,33100,34800,36500,38300,40200,42300,44400,46600,48900,51300,53900,56600]},
+15:{old:[9700,10190,10700,11240,11810,12410,13040,13700,14390,15110,15870,16670,17510,18390,19310,20280,21300,22370,23490],new:[22800,24000,25200,26400,27800,29100,30600,32100,33700,35400,37200,39000,41000,43000,45200,47400,49800,52300,55200]},
+16:{old:[9300,9770,10260,10780,11320,11890,12490,13120,13780,14470,15200,15960,16760,17600,18480,19410,20390,21410,22490],new:[21900,23000,24200,25400,26700,28000,29400,30900,32400,34000,35700,37500,39400,41300,43400,45600,47900,50200,52900]},
+17:{old:[9000,9450,9930,10430,10960,11510,12090,12700,13380,14050,14720,15480,16280,17060,17920,18820,19770,20760,21800],new:[21400,22500,23600,24800,26100,27400,28700,30200,31700,33200,34900,36700,38500,40400,42400,44500,46800,49100,51600]},
+18:{old:[8800,9240,9710,10200,10710,11250,11820,12420,13050,13710,14400,15120,15880,16680,17520,18400,19320,20290,21310],new:[21000,22100,23200,24400,25600,26900,28200,29600,31100,32600,34300,36000,37800,39600,41600,43700,45900,48200,50500]},
+19:{old:[8500,8930,9380,9850,10350,10870,11420,12000,12600,13230,13890,14600,15330,16100,16910,17760,18650,19590,20570],new:[20500,21600,22700,23800,25000,26200,27500,28900,30300,31900,33500,35100,36900,38700,40600,42700,44800,47000,49600]},
+20:{old:[8250,8670,9110,9570,10050,10560,11090,11650,12240,12860,13510,14190,14900,15650,16440,17270,18140,19050,20010],new:[20000,21000,22100,23200,24400,25600,26900,28200,29600,31100,32600,34300,36000,37800,39600,41600,43700,45900,48400]}
+};
+
+const fmt = n => '৳' + Number(n).toLocaleString('en-IN');
+const fmtMoney = n => Number(n).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const bnGrade = g => 'গ্রেড - ' + g;
+const gradeSel = document.getElementById('grade');
+const stepSel = document.getElementById('step');
+const statusBox = document.getElementById('statusBox');
+let currentSerial = '';
+let loadedBasicPay = null;
+
+const gradePlaceholder = document.createElement('option');
+gradePlaceholder.value = '';
+gradePlaceholder.textContent = 'গ্রেড নির্বাচন করুন';
+gradeSel.appendChild(gradePlaceholder);
+for (let g = 1; g <= 20; g++) {
+  const o = document.createElement('option');
+  o.value = g;
+  o.textContent = bnGrade(g);
+  gradeSel.appendChild(o);
+}
+
+function setStatus(message, type) {
+  statusBox.textContent = message;
+  statusBox.className = 'status' + (type ? ' ' + type : '');
+  statusBox.classList.remove('hidden');
+}
+
+function stepIndexForBasic(grade, basic) {
+  if (!grade || basic == null) return null;
+  const s = SCALES[grade];
+  if (!s) return null;
+  const idx = s.old.indexOf(basic);
+  return idx >= 0 ? idx : null;
+}
+
+function populateSteps(preferredStep) {
+  const g = +gradeSel.value;
+  stepSel.innerHTML = '';
+  if (!gradeSel.value || !SCALES[g]) {
+    const o = document.createElement('option');
+    o.value = '';
+    o.textContent = 'আগে গ্রেড নির্বাচন করুন';
+    stepSel.appendChild(o);
+    compute();
+    return;
+  }
+  const s = SCALES[g];
+  if (s.fixed) {
+    const o = document.createElement('option');
+    o.value = 0;
+    o.textContent = 'নির্ধারিত — ' + fmt(s.old[0]);
+    stepSel.appendChild(o);
+  } else {
+    s.old.forEach((v, i) => {
+      const o = document.createElement('option');
+      o.value = i;
+      o.textContent = 'ধাপ ' + (i + 1) + ' — ' + fmt(v);
+      stepSel.appendChild(o);
+    });
+  }
+  let step = preferredStep;
+  if (step == null) step = stepIndexForBasic(g, loadedBasicPay);
+  if (step != null && step >= 0 && step < stepSel.options.length) {
+    stepSel.value = String(step);
+  }
+  compute();
+}
+
+function fixPay(g, idx) {
+  const s = SCALES[g];
+  if (s.fixed) return {newPay: s.new[0], fullPay: s.new[0], stepText: 'নির্ধারিত হার', pctGroup: 'fixed', newIdx: 0};
+  const oldInitial = s.old[0];
+  const cur = s.old[idx];
+  const diff = cur - oldInitial;
+  const sum = s.new[0] + diff;
+  const ceilingIdx = s.new.findIndex(v => v >= sum);
+  const newIdx = ceilingIdx < 0 ? s.new.length - 1 : Math.min(ceilingIdx + (idx === 0 ? 0 : 1), s.new.length - 1);
+  const newPay = s.new[newIdx];
+  const fullPay = s.new[Math.min(newIdx + 1, s.new.length - 1)];
+  return {newPay, fullPay, cur, intermediatePay: sum, stepText: 'নতুন ধাপ ' + (newIdx + 1), pctGroup: g <= 9 ? 'high' : 'low', newIdx};
+}
+
+function displayDate(value) {
+  if (!value) return '';
+  const [y, m, d] = value.split('-');
+  return d + '/' + m + '/' + y;
+}
+
+function rowHtml(sl, label, value, cls, valCls) {
+  return '<tr class="' + (cls || '') + '"><td class="sl">' + sl + '</td><td class="label">' + label + '</td><td class="colon">:</td><td class="val ' + (valCls || '') + '">' + (value === '' || value == null ? '' : value) + '</td></tr>';
+}
+
+function compute() {
+  if (!gradeSel.value || stepSel.value === '') {
+    document.getElementById('newPay').textContent = '—';
+    document.getElementById('stepBadge').textContent = 'গ্রেড নির্বাচন করুন';
+    document.getElementById('metricCurrent').textContent = loadedBasicPay != null ? fmt(loadedBasicPay) : '—';
+    document.getElementById('metricGrade').textContent = '—';
+    document.getElementById('metricJuly').textContent = '—';
+    document.getElementById('metricFull').textContent = '—';
+    document.getElementById('phase1').textContent = '—';
+    document.getElementById('phase2').textContent = '—';
+    document.getElementById('phase3').textContent = '—';
+    document.getElementById('incLine').textContent = '';
+    document.getElementById('pctNote').textContent = 'কর্মকর্তা/কর্মচারীর তথ্য আনার পর প্রাপ্য গ্রেড নিজে নির্বাচন করুন।';
+    document.getElementById('statementBody').innerHTML = '';
+    document.getElementById('officialBody').innerHTML = '';
+    document.getElementById('auditBody').innerHTML = '';
+    return;
+  }
+  const g = +gradeSel.value;
+  const idx = +stepSel.value;
+  const s = SCALES[g];
+  const cur = s.fixed ? s.old[0] : s.old[idx];
+  const r = fixPay(g, idx);
+  const inc = r.newPay - cur;
+  const pctInc = cur ? ((inc / cur) * 100).toFixed(1) : '0.0';
+  const useHigh = r.pctGroup === 'high' || r.pctGroup === 'fixed';
+  const p1 = useHigh ? 0.40 : 0.50;
+  const p2 = useHigh ? 0.70 : 0.75;
+  const pctAmt1 = r.pctGroup === 'fixed' ? 0 : Math.round(inc * p1);
+  const pctAmt2 = r.pctGroup === 'fixed' ? 0 : Math.round(inc * p2);
+  const july2026 = r.pctGroup === 'fixed' ? r.newPay : Math.round(cur + inc * p1);
+  const phase2Pay = r.pctGroup === 'fixed' ? r.newPay : Math.round(cur + inc * p2);
+  const nextIncrement = r.pctGroup === 'fixed' ? 'প্রযোজ্য নয়' : '১/৭/২০২৮';
+  const firstStep = s.new[0];
+  const oldInitial = s.old[0];
+  const difference = cur - oldInitial;
+  const payableDifference = r.newPay - cur;
+  const name = document.getElementById('employeeName').value || '';
+  const post = document.getElementById('currentPost').value || '';
+  const joining = displayDate(document.getElementById('joiningDate').value);
+  const dept = document.getElementById('department').value || '';
+  const phone = document.getElementById('phone').value || '';
+  const nid = document.getElementById('nationalId').value || '';
+
+  document.getElementById('newPay').textContent = fmt(r.newPay);
+  document.getElementById('stepBadge').textContent = r.stepText;
+  document.getElementById('metricCurrent').textContent = fmt(cur);
+  document.getElementById('metricGrade').textContent = bnGrade(g);
+  document.getElementById('incLine').textContent = inc > 0
+    ? ('বৃদ্ধি: ' + fmt(inc) + ' (+' + pctInc + '%)')
+    : 'বৃদ্ধি প্রযোজ্য নয় (নির্ধারিত হার)';
+
+  if (r.pctGroup === 'fixed') {
+    document.getElementById('phase1').textContent = fmt(r.newPay);
+    document.getElementById('phase2').textContent = fmt(r.newPay);
+    document.getElementById('phase3').textContent = fmt(r.fullPay);
+    document.getElementById('pctNote').textContent = 'এই গ্রেডে নির্ধারিত (fixed) বেতন হওয়ায় ধাপভিত্তিক আংশিক বৃদ্ধি প্রযোজ্য নয়; ১ জুলাই ২০২৬ থেকেই পূর্ণ হারে কার্যকর।';
+  } else {
+    document.getElementById('phase1').textContent = fmt(july2026);
+    document.getElementById('phase2').textContent = fmt(phase2Pay);
+    document.getElementById('phase3').textContent = fmt(r.fullPay);
+    document.getElementById('pctNote').textContent = 'অনুচ্ছেদ অনুযায়ী গ্রেড ' + g + ' (' + (g <= 9 ? '৯ম ও তদূর্ধ্ব' : '১০ম–২০তম') + ') এর জন্য বৃদ্ধির অংশ: ১ম ধাপে ' + (p1 * 100) + '%, ২য় ধাপে ' + (p2 * 100) + '% (ক্রমপুঞ্জিত), ৩য় ধাপে ১০০%।';
+  }
+  document.getElementById('metricJuly').textContent = document.getElementById('phase1').textContent;
+  document.getElementById('metricFull').textContent = document.getElementById('phase3').textContent;
+
+  const screenRows = [
+    ['১', 'নাম', name || '—', ''],
+    ['২', 'বর্তমান পদ (৩০-০৬-২০২৬)', post || '—', ''],
+    ['৩', 'বর্তমান পদে যোগদানের তারিখ', joining || '—', ''],
+    ['৪', 'বিভাগ/দপ্তর', dept || '—', ''],
+    ['৫', 'সেল ফোন নং', phone || '—', ''],
+    ['৬', 'জাতীয় পরিচয় পত্র নং', nid || '—', ''],
+    ['৭', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী প্রাপ্য গ্রেড', bnGrade(g), ''],
+    ['৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত মূল বেতন', fmt(cur), 'highlight'],
+    ['৯', 'ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '<br>' + fmt(oldInitial), 'highlight'],
+    ['১০', 'প্রাপ্য (৮-৯খ)', fmt(difference), 'warm'],
+    ['১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রারম্ভিক বেতন', bnGrade(g) + '<br>' + fmt(firstStep), 'highlight'],
+    ['১২', 'মোট বেতন (১০+১১খ)', fmt(firstStep + difference), 'highlight'],
+    ['১৩', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ', fmt(r.newPay), 'highlight'],
+    ['১৪', '০১ জুলাই ২০২৬ তারিখে একটি ইনক্রিমেন্ট সহ প্রকৃত মূল বেতন নির্ধারণ', fmt(r.newPay), 'highlight'],
+    ['১৫', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে আহরিত মূল বেতনের পার্থক্য (১৪-৮)', fmt(payableDifference), 'warm'],
+    ['১৬', '১/৭/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে) ক) ৪০% / ৫০%', fmt(pctAmt1), ''],
+    ['১৭', '১/৭/২০২৬ তারিখে আহরিত মূল বেতন (৮+১৬)', fmt(july2026), 'warm'],
+    ['১৮', '৩০/৬/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে) ক) ৭০% / ৭৫%', fmt(pctAmt2), ''],
+    ['১৯', '১/৭/২০২৭ তারিখে গৃহিতব্য মূল বেতন (৮+১৮)', fmt(phase2Pay), 'pink'],
+    ['২০', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১/৭/২০২৭ তারিখে গৃহিতব্য শতভাগ মূল বেতন (কলাম-১৪ অনুসারে) একটি ইনক্রিমেন্ট সহ', fmt(r.fullPay), 'highlight'],
+    ['২১', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncrement, 'highlight']
+  ];
+  document.getElementById('statementBody').innerHTML = screenRows.map(row =>
+    '<tr class="' + row[3] + '"><td>' + row[0] + '</td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>'
+  ).join('');
+
+  const pct1Label = useHigh
+    ? 'ক) ৪০%&nbsp;&nbsp;(১ম হতে ৯ম গ্রেডের জন্য)'
+    : 'খ) ৫০% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)';
+  const pct2Label = useHigh
+    ? 'ক) ৭০%&nbsp;&nbsp;(১ম হতে ৯ম গ্রেডের জন্য)'
+    : 'খ) ৭৫% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)';
+
+  const printRows = [
+    rowHtml('', 'আইডি', currentSerial || '—', 'id-row', 'left'),
+    rowHtml('১', 'নাম', name, '', 'left'),
+    rowHtml('২', 'বর্তমান পদ (৩০-০৬-২০২৬)', post, '', 'left'),
+    rowHtml('৩', 'বর্তমান পদে যোগদানের তারিখ', joining, '', 'left'),
+    rowHtml('৪', 'বিভাগ/দপ্তর', dept, '', 'left'),
+    rowHtml('৫', 'সেল ফোন নং', phone, '', 'left'),
+    rowHtml('৬', 'জাতীয় পরিচয় পত্র নং', nid, '', 'left'),
+    rowHtml('৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত মূল বেতন', fmtMoney(cur), 'green'),
+    rowHtml('৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '\n' + fmtMoney(oldInitial), 'green'),
+    rowHtml('১০', 'প্রাপ্য (৮-৯খ)', fmtMoney(difference), ''),
+    rowHtml('১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '\n' + fmtMoney(firstStep), 'green'),
+    rowHtml('১২', 'মোট বেতন (১০+১১খ)', fmtMoney(firstStep + difference), 'green'),
+    rowHtml('১৩', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ', fmtMoney(r.newPay), 'blue'),
+    rowHtml('১৪', '১লা জুলাই ২০২৬ তারিখে একটি ইনক্রিমেন্ট সহ প্রকৃত মূল বেতন নির্ধারণ<br>(পে-স্কেলের ৯(২) ধারা মোতাবেক)', fmtMoney(r.newPay), 'green'),
+    rowHtml('১৫', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে আহরিত মূল বেতনের<br>পার্থক্য (১৪-৮)', fmtMoney(payableDifference), 'peach'),
+    rowHtml('১৬', '১/৭/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে)<br>' + pct1Label, fmtMoney(pctAmt1), ''),
+    rowHtml('১৭', '১/৭/২০২৬ তারিখে আহরিত মূল বেতন (৮+১৬)', fmtMoney(july2026), 'peach'),
+    rowHtml('১৮', '৩০/৬/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে)<br>' + pct2Label, fmtMoney(pctAmt2), ''),
+    rowHtml('১৯', '১/৭/২০২৭ তারিখে গৃহিতব্য মূল বেতন (৮+১৮)', fmtMoney(phase2Pay), 'lilac'),
+    rowHtml('২০', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১/৭/২০২৭ তারিখে গৃহিতব্য শতভাগ মূল বেতন<br>(কলাম -১৪ অনুসারে) একটি ইনক্রিমেন্ট সহ', fmtMoney(r.fullPay), ''),
+    rowHtml('২১', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncrement, 'green')
+  ].join('');
+
+  document.getElementById('officialBody').innerHTML = printRows;
+
+  document.getElementById('auditBody').innerHTML = [
+    rowHtml('১', 'ক) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন গ্রেড<br>খ) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন স্কেল', bnGrade(g) + '\n' + fmtMoney(r.newPay), ''),
+    rowHtml('২', '১ জুলাই ২০২৬ তারিখে নির্ধারিত মূল বেতন', fmtMoney(july2026), ''),
+    rowHtml('৩', 'ক) ১ জানুয়ারি ২০২৭ তারিখে নির্ধারিত মূল বেতন<br>খ) ১ জুলাই ২০২৭ তারিখে নির্ধারিত মূল বেতন', fmtMoney(phase2Pay) + '\n' + fmtMoney(r.fullPay), ''),
+    rowHtml('৪', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncrement, '')
+  ].join('');
+}
+
+async function loadEmployee() {
+  const serial = String(document.getElementById('serialInput').value || '').trim();
+  if (!serial) {
+    setStatus('ক্রমিক নম্বর লিখুন।', 'error');
+    return;
+  }
+
+  setStatus('Excel থেকে তথ্য আনা হচ্ছে…', '');
+  try {
+    const res = await fetch('/api/employee/' + encodeURIComponent(serial));
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      setStatus(data.error || ('ক্রমিক নং ' + serial + ' পাওয়া যায়নি।'), 'error');
+      return;
+    }
+    const emp = data;
+    currentSerial = String(emp.serial);
+    loadedBasicPay = emp.basic != null ? Number(emp.basic) : null;
+    document.getElementById('employeeName').value = emp.name || '';
+    document.getElementById('currentPost').value = emp.post || '';
+    document.getElementById('department').value = emp.department || '';
+    document.getElementById('phone').value = emp.phone || '';
+    document.getElementById('nationalId').value = emp.nid || '';
+
+    gradeSel.value = '';
+    populateSteps();
+    const payText = loadedBasicPay != null ? (' · মূল বেতন ' + fmt(loadedBasicPay)) : '';
+    setStatus('ক্রমিক নং ' + serial + ' — ' + (emp.name || '') + payText + ' · এখন গ্রেড নির্বাচন করুন', '');
+  } catch (err) {
+    setStatus('সার্ভার সংযোগ ব্যর্থ। python server.py চালু আছে কি না দেখুন।', 'error');
+  }
+}
+
+async function refreshStats() {
+  try {
+    const res = await fetch('/api/stats');
+    const data = await res.json();
+    if (res.ok) {
+      setStatus('ক্রমিক নম্বর দিয়ে তথ্য আনুন (live Excel · মোট ' + data.count + ' জন)।', '');
+    } else {
+      setStatus(data.error || 'Excel পড়া যায়নি।', 'error');
+    }
+  } catch (err) {
+    setStatus('সার্ভার চালু নেই। টার্মিনালে: python server.py', 'error');
+  }
+}
+
+document.getElementById('searchBtn').addEventListener('click', loadEmployee);
+document.getElementById('serialInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    loadEmployee();
+  }
+});
+gradeSel.addEventListener('change', () => populateSteps());
+stepSel.addEventListener('change', compute);
+document.getElementById('joiningDate').addEventListener('input', compute);
+
+const savedTitle = document.title;
+function printForm() {
+  document.title = ' ';
+  window.print();
+}
+window.addEventListener('afterprint', () => { document.title = savedTitle; });
+document.getElementById('printBtn').addEventListener('click', printForm);
+document.getElementById('navPrint').addEventListener('click', printForm);
+
+gradeSel.value = '';
+populateSteps();
+refreshStats();
+</script>
+</body>
+</html>
