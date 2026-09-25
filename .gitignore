@@ -1,3 +1,10 @@
+build/
+dist/
+*.spec
+# Keep the zip for users; ignore unpacked build copy if present
+release/BUTEX-Calc/
+!release/
+!release/BUTEX-Calc.zip
 __pycache__/
 *.py[cod]
 *.pyc

@@ -1,0 +1,24 @@
+BUTEX Salary Fixation Calculator — how to run
+==============================================
+
+1. Keep this whole folder together (do not move only the .exe).
+
+2. Put / update your Excel file here:
+   data\Salary fixation Form.xlsx
+
+   Sheet name must be: Inforation
+
+3. Double-click: BUTEX-Calc.exe
+
+4. Your browser opens at http://127.0.0.1:8080/
+
+5. Enter serial number → তথ্য আনুন → select গ্রেড → প্রিন্ট / PDF
+
+6. To stop: close the black console window.
+
+Notes
+-----
+- No Python install needed.
+- If Windows SmartScreen warns, click More info → Run anyway.
+- If Excel is open/locked, save or close it, then try again.
+- When you add employees, only update the Excel file and run the .exe again.

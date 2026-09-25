@@ -8,6 +8,7 @@ echo.
 where python >nul 2>&1
 if errorlevel 1 (
   echo ERROR: Python not found. Install Python and tick "Add to PATH".
+  echo Or use the release package BUTEX-Calc.exe instead.
   echo https://www.python.org/downloads/
   pause
   exit /b 1
@@ -28,9 +29,7 @@ if not exist "data\Salary fixation Form.xlsx" (
   echo.
 )
 
-echo Starting server...
-echo Open http://127.0.0.1:8080/ in your browser.
+echo Starting server at http://127.0.0.1:8080/
 echo.
-start "" "http://127.0.0.1:8080/"
 python server.py
 pause

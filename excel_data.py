@@ -9,13 +9,12 @@ from pathlib import Path
 import openpyxl
 import unicodeconverter as uc
 
-BASE_DIR = Path(__file__).resolve().parent
+from app_paths import app_dir
 
-# Prefer project data/ (for sharing), then Downloads. Override with BUTEX_EXCEL.
-DEFAULT_CANDIDATES = [
-    BASE_DIR / "data" / "Salary fixation Form.xlsx",
-    Path(r"c:\Users\omarr\Downloads\Salary fixation Form (1).xlsx"),
-]
+BASE_DIR = app_dir()
+
+# Only this file (plus optional BUTEX_EXCEL override).
+EXCEL_NAME = "Salary fixation Form.xlsx"
 
 SCALES_OLD = {
     1: [78000],
@@ -56,12 +55,12 @@ def resolve_excel_path() -> Path:
         if path.is_file():
             return path
         raise FileNotFoundError(f"BUTEX_EXCEL not found: {path}")
-    for path in DEFAULT_CANDIDATES:
-        if path.is_file():
-            return path
+
+    path = app_dir() / "data" / EXCEL_NAME
+    if path.is_file():
+        return path
     raise FileNotFoundError(
-        "Excel file not found. Place it at data/Salary fixation Form.xlsx "
-        "or set BUTEX_EXCEL to the full path."
+        f"Excel file not found.\nPlace it here:\n{path}"
     )
 
 

@@ -2,14 +2,19 @@
 """Live Excel backend for BUTEX salary fixation calculator."""
 from __future__ import annotations
 
-from pathlib import Path
+import threading
+import time
+import webbrowser
 
 from flask import Flask, jsonify, send_from_directory
 
+from app_paths import app_dir
 from excel_data import excel_stats, find_employee, resolve_excel_path
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = app_dir()
 app = Flask(__name__, static_folder=str(BASE_DIR), static_url_path="")
+PORT = 8080
+URL = f"http://127.0.0.1:{PORT}/"
 
 
 @app.get("/")
@@ -54,11 +59,24 @@ def employee(serial: int):
     return jsonify(emp)
 
 
+def _open_browser():
+    time.sleep(1.2)
+    webbrowser.open(URL)
+
+
 if __name__ == "__main__":
-    print("BUTEX live Excel server")
+    print("=" * 50)
+    print(" BUTEX Salary Fixation Calculator")
+    print("=" * 50)
+    print("App folder:", BASE_DIR)
     try:
         print("Excel:", resolve_excel_path())
     except Exception as exc:
         print("Excel warning:", exc)
-    print("Open http://127.0.0.1:8080/")
-    app.run(host="127.0.0.1", port=8080, debug=False)
+        print("Put the file at:", BASE_DIR / "data" / "Salary fixation Form.xlsx")
+    print("Opening", URL)
+    print("Keep this window open while using the app.")
+    print("Close this window to stop the server.")
+    print("=" * 50)
+    threading.Thread(target=_open_browser, daemon=True).start()
+    app.run(host="127.0.0.1", port=PORT, debug=False, use_reloader=False)
