@@ -1,6 +1,8 @@
 BUTEX Salary Fixation Calculator — how to run
 ==============================================
 
+From GitHub: click Code → Download ZIP, unzip, then open release\BUTEX-Calc
+
 1. Keep this whole folder together (do not move only the .exe).
 
 2. Put / update your Excel file here:

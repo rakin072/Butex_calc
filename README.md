@@ -4,15 +4,14 @@ Web app for Bangladesh University of Textiles (BUTEX) to look up employees by se
 
 ## Download & run (end users — no Python)
 
-**Do not use the green “Code → Download ZIP” button** (that is source code only).
+1. On this page, click the green **Code** button → **Download ZIP**
+2. Unzip `Butex_calc-main.zip`
+3. Open the folder: **`release\BUTEX-Calc`**
+4. Double-click **`BUTEX-Calc.exe`**
+5. Browser opens at http://127.0.0.1:8080/
+6. Enter serial → select grade → Print / PDF
 
-1. Open **[Releases](https://github.com/rakin072/Butex_calc/releases/latest)**
-2. Download **[BUTEX-Calc.zip](https://github.com/rakin072/Butex_calc/releases/latest/download/BUTEX-Calc.zip)**
-3. Unzip the folder (keep everything together)
-4. Put your Excel file here: `data\Salary fixation Form.xlsx`
-5. Double-click **`BUTEX-Calc.exe`**
-6. Browser opens at http://127.0.0.1:8080/
-7. Enter serial → select grade → Print / PDF
+Keep Excel here (inside that folder): `data\Salary fixation Form.xlsx`
 
 Read `HOW-TO-RUN.txt` inside the package for details.
 
@@ -41,14 +40,14 @@ set BUTEX_EXCEL=C:\path\to\file.xlsx
 build_exe.bat
 ```
 
-Output: `release\BUTEX-Calc\` and `release\BUTEX-Calc.zip`  
-Then upload the new zip to a GitHub Release so end users can download it.
+Output: `release\BUTEX-Calc\` (committed for end users) and `release\BUTEX-Calc.zip`  
+After rebuilding, commit the updated `release\BUTEX-Calc\` folder and push.
 
 ## Project files
 
 | File / folder | Purpose |
 |---------------|---------|
-| `BUTEX-Calc.exe` (in release zip) | One-click app for users |
+| `release/BUTEX-Calc/BUTEX-Calc.exe` | One-click app for users |
 | `index.html` | UI + print form |
 | `server.py` | Flask backend |
 | `excel_data.py` | Live Excel read |
