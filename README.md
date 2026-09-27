@@ -2,14 +2,17 @@
 
 Web app for Bangladesh University of Textiles (BUTEX) to look up employees by serial number from an Excel sheet and print the National Pay Scale 2026 fixation form.
 
-## For end users (easiest — no Python)
+## Download & run (end users — no Python)
 
-1. Download **`release/BUTEX-Calc.zip`** (or the GitHub Release zip).
-2. Unzip the folder.
-3. Keep Excel here: `data\Salary fixation Form.xlsx`
-4. Double-click **`BUTEX-Calc.exe`**
-5. Browser opens at http://127.0.0.1:8080/
-6. Enter serial → select grade → print.
+**Do not use the green “Code → Download ZIP” button** (that is source code only).
+
+1. Open **[Releases](https://github.com/rakin072/Butex_calc/releases/latest)**
+2. Download **[BUTEX-Calc.zip](https://github.com/rakin072/Butex_calc/releases/latest/download/BUTEX-Calc.zip)**
+3. Unzip the folder (keep everything together)
+4. Put your Excel file here: `data\Salary fixation Form.xlsx`
+5. Double-click **`BUTEX-Calc.exe`**
+6. Browser opens at http://127.0.0.1:8080/
+7. Enter serial → select grade → Print / PDF
 
 Read `HOW-TO-RUN.txt` inside the package for details.
 
@@ -38,13 +41,14 @@ set BUTEX_EXCEL=C:\path\to\file.xlsx
 build_exe.bat
 ```
 
-Output: `release\BUTEX-Calc\` and `release\BUTEX-Calc.zip`
+Output: `release\BUTEX-Calc\` and `release\BUTEX-Calc.zip`  
+Then upload the new zip to a GitHub Release so end users can download it.
 
 ## Project files
 
 | File / folder | Purpose |
 |---------------|---------|
-| `BUTEX-Calc.exe` (in release) | One-click app for users |
+| `BUTEX-Calc.exe` (in release zip) | One-click app for users |
 | `index.html` | UI + print form |
 | `server.py` | Flask backend |
 | `excel_data.py` | Live Excel read |
@@ -55,7 +59,7 @@ Output: `release\BUTEX-Calc\` and `release\BUTEX-Calc.zip`
 ## Notes
 
 - Keep the console window open while using the app.
-- If Excel is locked in Excel/OneDrive, save/close it and try again.
+- If Excel is locked in Excel/OneDrive, save or close it, then try again.
 - Employee data may contain personal information — keep the repo private if needed.
 
 ## Repository
