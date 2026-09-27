@@ -339,7 +339,16 @@ const SCALES = {
 
 const fmt = n => '৳' + Number(n).toLocaleString('en-IN');
 const fmtMoney = n => Number(n).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const fmtScale = n => Number(n).toLocaleString('en-IN');
 const bnGrade = g => 'গ্রেড - ' + g;
+
+/** Full 2026 pay-scale range for a grade (min–max of new scale steps). */
+function betonScaleText(grade) {
+  const s = SCALES[grade];
+  if (!s || !s.new || !s.new.length) return '';
+  if (s.fixed || s.new.length === 1) return fmtScale(s.new[0]);
+  return fmtScale(s.new[0]) + ' - ' + fmtScale(s.new[s.new.length - 1]);
+}
 const gradeSel = document.getElementById('grade');
 const stepSel = document.getElementById('step');
 const statusBox = document.getElementById('statusBox');
@@ -529,7 +538,6 @@ function compute() {
     : 'খ) ৭৫% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)';
 
   const printRows = [
-    rowHtml('', 'আইডি', currentSerial || '—', 'id-row', 'left'),
     rowHtml('১', 'নাম', name, '', 'left'),
     rowHtml('২', 'বর্তমান পদ (৩০-০৬-২০২৬)', post, '', 'left'),
     rowHtml('৩', 'বর্তমান পদে যোগদানের তারিখ', joining, '', 'left'),
@@ -555,7 +563,7 @@ function compute() {
   document.getElementById('officialBody').innerHTML = printRows;
 
   document.getElementById('auditBody').innerHTML = [
-    rowHtml('১', 'ক) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন গ্রেড<br>খ) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন স্কেল', bnGrade(g) + '\n' + fmtMoney(r.newPay), ''),
+    rowHtml('১', 'ক) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন গ্রেড<br>খ) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন স্কেল', bnGrade(g) + '\n' + betonScaleText(g), ''),
     rowHtml('২', '১ জুলাই ২০২৬ তারিখে নির্ধারিত মূল বেতন', fmtMoney(july2026), ''),
     rowHtml('৩', 'ক) ১ জানুয়ারি ২০২৭ তারিখে নির্ধারিত মূল বেতন<br>খ) ১ জুলাই ২০২৭ তারিখে নির্ধারিত মূল বেতন', fmtMoney(phase2Pay) + '\n' + fmtMoney(r.fullPay), ''),
     rowHtml('৪', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncrement, '')
