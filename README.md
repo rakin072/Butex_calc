@@ -24,15 +24,18 @@ python server.py
 
 Or double-click `start-server.bat`.
 
-Excel path (only this file):
+Excel path (first match wins):
 
-`data/Salary fixation Form.xlsx`
+- `data/Salary fixation Form.xlsx`
+- `data/Salary fixation Form (2).xlsx`
 
 Optional override:
 
 ```bash
 set BUTEX_EXCEL=C:\path\to\file.xlsx
 ```
+
+Print uses the official **Fixation** sheet layout. Use **PDF ডাউনলোড** to save the form, or **প্রিন্ট** for the browser print dialog.
 
 ### Rebuild the .exe
 

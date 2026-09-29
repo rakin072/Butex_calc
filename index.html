@@ -98,12 +98,24 @@ th{background:#f2f7f8; color:#5d7078; font-weight:600; text-align:left;}
 .statement-detail-table tr.highlight td:last-child{background:#eaf4dd;}
 .statement-detail-table tr.warm td:last-child{background:#f8e4ca;}
 .statement-detail-table tr.pink td:last-child{background:#f3dddd;}
-.actions{display:flex; justify-content:flex-end; gap:8px; margin-top:14px;}
+.actions{display:flex; justify-content:flex-end; flex-wrap:wrap; gap:8px; margin-top:14px;}
 footer{
   margin-top:24px; padding:18px 4px 0; border-top:1px solid var(--border);
   font-size:12px; color:var(--text-muted); line-height:1.7;
 }
 .official-report{display:none;}
+.official-report.pdf-render{
+  display:block !important;
+  width:190mm;
+  padding:8mm 6mm;
+  background:#fff;
+  color:#000;
+  font-family:'Noto Serif Bengali','Hind Siliguri',serif;
+  font-size:11.5px;
+  line-height:1.35;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
 @media(max-width:860px){
   .layout{grid-template-columns:1fr;}
   .phases{grid-template-columns:1fr;}
@@ -126,53 +138,56 @@ footer{
     font-family:'Noto Serif Bengali','Hind Siliguri',serif;
     color:#000; font-size:11.5px; line-height:1.35;
   }
-  .official-header{
-    display:grid; grid-template-columns:70px 1fr 70px; align-items:center;
-    gap:8px; margin-bottom:6px; text-align:center;
-  }
-  .official-header .print-logo{width:68px; height:68px; object-fit:contain;}
-  .official-header .header-text h1{font-size:20px; margin:0; font-weight:700;}
-  .official-header .header-text p{margin:1px 0; font-size:13px;}
-  .official-title{
-    text-align:center; font-size:12.5px; font-weight:700;
-    border-top:1px solid #000; border-bottom:1px solid #000;
-    padding:5px 4px; margin:0 0 6px;
-  }
-  .official-table{width:100%; border-collapse:collapse; margin:0; table-layout:fixed;}
-  .official-table td{
-    border:1px solid #000; padding:3px 5px; vertical-align:middle; text-align:left;
-    font-size:11px;
-  }
-  .official-table td.sl{width:28px; text-align:center; font-weight:700;}
-  .official-table td.label{width:auto;}
-  .official-table td.colon{width:16px; text-align:center;}
-  .official-table td.val{width:150px; text-align:right; font-weight:600; white-space:pre-line;}
-  .official-table td.val.left{text-align:left;}
-  .official-table tr.id-row td{font-weight:700;}
-  .official-table tr.green td.val{background:#c6efce;}
-  .official-table tr.blue td.val{background:#bdd7ee;}
-  .official-table tr.peach td.val,.official-table tr.peach td.label{background:#fce4d6;}
-  .official-table tr.pink td.val{background:#f8cbad;}
-  .official-table tr.lilac td.val{background:#e2d5f1;}
-  .employee-sign{text-align:right; margin:36px 8px 18px; font-size:12px;}
-  .employee-sign span{display:inline-block; border-top:1px dotted #000; padding-top:6px; min-width:280px; text-align:center;}
-  .official-signatures{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
-    margin-top:56px; margin-bottom:12px; text-align:center; font-size:12px;
-  }
-  .official-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 18px;}
-  .audit-block{margin-top:48px; padding-top:10px;}
-  .audit-title{
-    text-align:center; font-size:14px; font-weight:700;
-    border-bottom:1px solid #000; padding-bottom:3px; margin:0 0 10px;
-  }
-  .audit-note{margin:0 0 12px; font-size:11.5px;}
-  .audit-signatures{
-    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
-    margin-top:56px; text-align:center; font-size:12px;
-  }
-  .audit-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 18px;}
 }
+.official-report .official-header,
+.official-report.pdf-render .official-header{
+  display:grid; grid-template-columns:70px 1fr 70px; align-items:center;
+  gap:8px; margin-bottom:6px; text-align:center;
+}
+.official-report .print-logo{width:68px; height:68px; object-fit:contain;}
+.official-report .header-text h1{font-size:20px; margin:0; font-weight:700; font-family:'Noto Serif Bengali',serif;}
+.official-report .header-text p{margin:1px 0; font-size:13px;}
+.official-report .official-title{
+  text-align:center; font-size:12.5px; font-weight:700;
+  border-top:1px solid #000; border-bottom:1px solid #000;
+  padding:5px 4px; margin:0 0 6px;
+}
+.official-report .official-table{width:100%; border-collapse:collapse; margin:0; table-layout:fixed;}
+.official-report .official-table td{
+  border:1px solid #000; padding:3px 5px; vertical-align:middle; text-align:left;
+  font-size:11px;
+}
+.official-report .official-table td.sl{width:28px; text-align:center; font-weight:700;}
+.official-report .official-table td.label{width:auto;}
+.official-report .official-table td.colon{width:16px; text-align:center;}
+.official-report .official-table td.val{width:150px; text-align:right; font-weight:600; white-space:pre-line;}
+.official-report .official-table td.val.left{text-align:left;}
+.official-report .official-table tr.id-row td{font-weight:700;}
+.official-report .official-table tr.green td.val{background:#c6efce;}
+.official-report .official-table tr.blue td.val{background:#bdd7ee; color:#c00000;}
+.official-report .official-table tr.peach td.val,
+.official-report .official-table tr.peach td.label{background:#fce4d6;}
+.official-report .official-table tr.pink td.val{background:#f8cbad;}
+.official-report .official-table tr.lilac td.val{background:#e2d5f1; color:#c00000;}
+.official-report .official-table tr.mark td.val{color:#c00000;}
+.official-report .employee-sign{text-align:right; margin:36px 8px 18px; font-size:12px;}
+.official-report .employee-sign span{display:inline-block; border-top:1px dotted #000; padding-top:6px; min-width:280px; text-align:center;}
+.official-report .official-signatures{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  margin-top:56px; margin-bottom:12px; text-align:center; font-size:12px;
+}
+.official-report .official-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 18px;}
+.official-report .audit-block{margin-top:48px; padding-top:10px;}
+.official-report .audit-title{
+  text-align:center; font-size:14px; font-weight:700;
+  border-bottom:1px solid #000; padding-bottom:3px; margin:0 0 10px;
+}
+.official-report .audit-note{margin:0 0 12px; font-size:11.5px;}
+.official-report .audit-signatures{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  margin-top:56px; text-align:center; font-size:12px;
+}
+.official-report .audit-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 18px;}
 </style>
 </head>
 <body>
@@ -182,7 +197,10 @@ footer{
       <img class="brand-logo" src="images/butex-logo-png_seeklogo-427477.png" alt="BUTEX logo" width="42" height="42">
       <span>বেতন নির্ধারণ — BUTEX</span>
     </div>
-    <button class="nav-pill" type="button" id="navPrint">প্রিন্ট / PDF</button>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <button class="nav-pill" type="button" id="navPrint">প্রিন্ট</button>
+      <button class="nav-pill" type="button" id="navDownloadPdf" style="background:#007d5d;color:#fff;">PDF ডাউনলোড</button>
+    </div>
   </nav>
 
   <header>
@@ -272,7 +290,8 @@ footer{
           </div>
         </div>
         <div class="actions">
-          <button class="btn secondary" type="button" id="printBtn">প্রিন্ট / PDF</button>
+          <button class="btn secondary" type="button" id="printBtn">প্রিন্ট</button>
+          <button class="btn" type="button" id="downloadPdfBtn">PDF ডাউনলোড</button>
         </div>
       </div>
 
@@ -301,7 +320,7 @@ footer{
           <div class="audit-signatures">
             <div>প্রস্তুতকারক</div>
             <div>সহ-পরিচালক (অডিট)</div>
-            <div>পরিচালক (অডিট)</div>
+            <div>উপ-পরিচালক (অডিট)</div>
           </div>
         </div>
       </section>
@@ -313,6 +332,7 @@ footer{
   </footer>
 </div>
 
+<script src="vendor/html2pdf.bundle.min.js"></script>
 <script>
 const SCALES = {
 1:{old:[78000],new:[156000],fixed:true},
@@ -340,7 +360,12 @@ const SCALES = {
 const fmt = n => '৳' + Number(n).toLocaleString('en-IN');
 const fmtMoney = n => Number(n).toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
 const fmtScale = n => Number(n).toLocaleString('en-IN');
+const BN_DIGITS = '০১২৩৪৫৬৭৮৯';
+const toBn = value => String(value).replace(/[0-9]/g, d => BN_DIGITS[Number(d)]);
+const fmtMoneyBn = n => toBn(fmtMoney(n));
+const fmtScaleBn = n => toBn(fmtScale(n));
 const bnGrade = g => 'গ্রেড - ' + g;
+const bnGradeBn = g => 'গ্রেড - ' + toBn(g);
 
 /** Full 2026 pay-scale range for a grade (min–max of new scale steps). */
 function betonScaleText(grade) {
@@ -415,16 +440,41 @@ function populateSteps(preferredStep) {
 
 function fixPay(g, idx) {
   const s = SCALES[g];
-  if (s.fixed) return {newPay: s.new[0], fullPay: s.new[0], stepText: 'নির্ধারিত হার', pctGroup: 'fixed', newIdx: 0};
+  if (s.fixed) {
+    return {
+      stepPay: s.new[0],
+      newPay: s.new[0],
+      fullPay: s.new[0],
+      cur: s.old[0],
+      intermediatePay: s.new[0],
+      stepText: 'নির্ধারিত হার',
+      pctGroup: 'fixed',
+      stepIdx: 0,
+      newIdx: 0
+    };
+  }
   const oldInitial = s.old[0];
   const cur = s.old[idx];
   const diff = cur - oldInitial;
   const sum = s.new[0] + diff;
-  const ceilingIdx = s.new.findIndex(v => v >= sum);
-  const newIdx = ceilingIdx < 0 ? s.new.length - 1 : Math.min(ceilingIdx + (idx === 0 ? 0 : 1), s.new.length - 1);
-  const newPay = s.new[newIdx];
-  const fullPay = s.new[Math.min(newIdx + 1, s.new.length - 1)];
-  return {newPay, fullPay, cur, intermediatePay: sum, stepText: 'নতুন ধাপ ' + (newIdx + 1), pctGroup: g <= 9 ? 'high' : 'low', newIdx};
+  let ceilingIdx = s.new.findIndex(v => v >= sum);
+  if (ceilingIdx < 0) ceilingIdx = s.new.length - 1;
+  // Excel Fixation: row13 = first new-scale step >= (newInitial + diff),
+  // row14 = +1 increment (9(2)), row20 = next step for 1/7/2027.
+  const stepIdx = ceilingIdx;
+  const fixedIdx = Math.min(stepIdx + 1, s.new.length - 1);
+  const fullIdx = Math.min(fixedIdx + 1, s.new.length - 1);
+  return {
+    stepPay: s.new[stepIdx],
+    newPay: s.new[fixedIdx],
+    fullPay: s.new[fullIdx],
+    cur,
+    intermediatePay: sum,
+    stepText: 'নতুন ধাপ ' + (fixedIdx + 1),
+    pctGroup: g <= 9 ? 'high' : 'low',
+    stepIdx,
+    newIdx: fixedIdx
+  };
 }
 
 function displayDate(value) {
@@ -434,7 +484,7 @@ function displayDate(value) {
 }
 
 function rowHtml(sl, label, value, cls, valCls) {
-  return '<tr class="' + (cls || '') + '"><td class="sl">' + sl + '</td><td class="label">' + label + '</td><td class="colon">:</td><td class="val ' + (valCls || '') + '">' + (value === '' || value == null ? '' : value) + '</td></tr>';
+  return '<tr class="' + (cls || '') + '"><td class="sl">' + sl + '</td><td class="label">' + label + '</td><td class="colon">ঃ</td><td class="val ' + (valCls || '') + '">' + (value === '' || value == null ? '' : value) + '</td></tr>';
 }
 
 function compute() {
@@ -510,63 +560,59 @@ function compute() {
     ['৪', 'বিভাগ/দপ্তর', dept || '—', ''],
     ['৫', 'সেল ফোন নং', phone || '—', ''],
     ['৬', 'জাতীয় পরিচয় পত্র নং', nid || '—', ''],
-    ['৭', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী প্রাপ্য গ্রেড', bnGrade(g), ''],
     ['৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত মূল বেতন', fmt(cur), 'highlight'],
-    ['৯', 'ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '<br>' + fmt(oldInitial), 'highlight'],
-    ['১০', 'প্রাপ্য (৮-৯খ)', fmt(difference), 'warm'],
-    ['১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রারম্ভিক বেতন', bnGrade(g) + '<br>' + fmt(firstStep), 'highlight'],
+    ['৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '<br>' + fmt(oldInitial), 'highlight'],
+    ['১০', 'পার্থক্য (৮-৯খ)', fmt(difference), 'warm'],
+    ['১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '<br>' + fmt(firstStep), 'highlight'],
     ['১২', 'মোট বেতন (১০+১১খ)', fmt(firstStep + difference), 'highlight'],
-    ['১৩', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ', fmt(r.newPay), 'highlight'],
-    ['১৪', '০১ জুলাই ২০২৬ তারিখে একটি ইনক্রিমেন্ট সহ প্রকৃত মূল বেতন নির্ধারণ', fmt(r.newPay), 'highlight'],
-    ['১৫', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে আহরিত মূল বেতনের পার্থক্য (১৪-৮)', fmt(payableDifference), 'warm'],
-    ['১৬', '১/৭/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে) ক) ৪০% / ৫০%', fmt(pctAmt1), ''],
-    ['১৭', '১/৭/২০২৬ তারিখে আহরিত মূল বেতন (৮+১৬)', fmt(july2026), 'warm'],
-    ['১৮', '৩০/৬/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে) ক) ৭০% / ৭৫%', fmt(pctAmt2), ''],
-    ['১৯', '১/৭/২০২৭ তারিখে গৃহিতব্য মূল বেতন (৮+১৮)', fmt(phase2Pay), 'pink'],
-    ['২০', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১/৭/২০২৭ তারিখে গৃহিতব্য শতভাগ মূল বেতন (কলাম-১৪ অনুসারে) একটি ইনক্রিমেন্ট সহ', fmt(r.fullPay), 'highlight'],
+    ['১৩', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ', fmt(r.stepPay), 'highlight'],
+    ['১৪', '১লা জুলাই ২০২৬ তারিখে একটি ইনক্রিমেন্ট সহ প্রকৃত মূল বেতন নির্ধারণ<br>(পে-স্কেলের ৯(২) ধারা মোতাবেক)', fmt(r.newPay), 'highlight'],
+    ['১৫', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে আহরিত মূল বেতনের প্রার্থক্য (১৪-৯)', fmt(payableDifference), 'warm'],
+    ['১৬', '১/৭/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে)<br>ক) ৪০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৫০% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', fmt(pctAmt1), ''],
+    ['১৭', '১/১/২০২৬ তারিখে আহরিত মূল বেতন (৮+১৬)', fmt(july2026), 'warm'],
+    ['১৮', '৩০/৬/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৬ অনুসারে)<br>ক) ৭০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৭৫% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', fmt(pctAmt2), ''],
+    ['১৯', '০১/০১/২০২৭ তারিখে নির্ধারিত মূল বেতন (৮+১৮)', fmt(phase2Pay), 'pink'],
+    ['২০', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১/৭/২০২৭ তারিখে নির্ধারিত শতভাগ মূল বেতন (কলাম-১৪ অনুসারে) একটি ইনক্রিমেন্ট সহ', fmt(r.fullPay), 'highlight'],
     ['২১', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncrement, 'highlight']
   ];
   document.getElementById('statementBody').innerHTML = screenRows.map(row =>
     '<tr class="' + row[3] + '"><td>' + row[0] + '</td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>'
   ).join('');
 
-  const pct1Label = useHigh
-    ? 'ক) ৪০%&nbsp;&nbsp;(১ম হতে ৯ম গ্রেডের জন্য)'
-    : 'খ) ৫০% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)';
-  const pct2Label = useHigh
-    ? 'ক) ৭০%&nbsp;&nbsp;(১ম হতে ৯ম গ্রেডের জন্য)'
-    : 'খ) ৭৫% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)';
+  const pct16Val = useHigh ? (fmtMoneyBn(pctAmt1) + '\n') : ('\n' + fmtMoneyBn(pctAmt1));
+  const pct18Val = useHigh ? (fmtMoneyBn(pctAmt2) + '\n') : ('\n' + fmtMoneyBn(pctAmt2));
+  const nextIncBn = r.pctGroup === 'fixed' ? 'প্রযোজ্য নয়' : toBn('1/7/2028');
 
   const printRows = [
     rowHtml('১', 'নাম', name, '', 'left'),
     rowHtml('২', 'বর্তমান পদ (৩০-০৬-২০২৬)', post, '', 'left'),
-    rowHtml('৩', 'বর্তমান পদে যোগদানের তারিখ', joining, '', 'left'),
+    rowHtml('৩', 'বর্তমান পদে যোগদানের তারিখ', joining ? toBn(joining) : '', '', 'left'),
     rowHtml('৪', 'বিভাগ/দপ্তর', dept, '', 'left'),
-    rowHtml('৫', 'সেল ফোন নং', phone, '', 'left'),
-    rowHtml('৬', 'জাতীয় পরিচয় পত্র নং', nid, '', 'left'),
-    rowHtml('৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত মূল বেতন', fmtMoney(cur), 'green'),
-    rowHtml('৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '\n' + fmtMoney(oldInitial), 'green'),
-    rowHtml('১০', 'প্রাপ্য (৮-৯খ)', fmtMoney(difference), ''),
-    rowHtml('১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '\n' + fmtMoney(firstStep), 'green'),
-    rowHtml('১২', 'মোট বেতন (১০+১১খ)', fmtMoney(firstStep + difference), 'green'),
-    rowHtml('১৩', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ', fmtMoney(r.newPay), 'blue'),
-    rowHtml('১৪', '১লা জুলাই ২০২৬ তারিখে একটি ইনক্রিমেন্ট সহ প্রকৃত মূল বেতন নির্ধারণ<br>(পে-স্কেলের ৯(২) ধারা মোতাবেক)', fmtMoney(r.newPay), 'green'),
-    rowHtml('১৫', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে আহরিত মূল বেতনের<br>পার্থক্য (১৪-৮)', fmtMoney(payableDifference), 'peach'),
-    rowHtml('১৬', '১/৭/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে)<br>' + pct1Label, fmtMoney(pctAmt1), ''),
-    rowHtml('১৭', '১/৭/২০২৬ তারিখে আহরিত মূল বেতন (৮+১৬)', fmtMoney(july2026), 'peach'),
-    rowHtml('১৮', '৩০/৬/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে)<br>' + pct2Label, fmtMoney(pctAmt2), ''),
-    rowHtml('১৯', '১/৭/২০২৭ তারিখে গৃহিতব্য মূল বেতন (৮+১৮)', fmtMoney(phase2Pay), 'lilac'),
-    rowHtml('২০', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১/৭/২০২৭ তারিখে গৃহিতব্য শতভাগ মূল বেতন<br>(কলাম -১৪ অনুসারে) একটি ইনক্রিমেন্ট সহ', fmtMoney(r.fullPay), ''),
-    rowHtml('২১', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncrement, 'green')
+    rowHtml('৫', 'সেল ফোন নং', phone ? toBn(phone) : '', '', 'left'),
+    rowHtml('৬', 'জাতীয় পরিচয় পত্র নং', nid ? toBn(nid) : '', '', 'left'),
+    rowHtml('৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত মূল বেতন', fmtMoneyBn(cur), 'green'),
+    rowHtml('৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGradeBn(g) + '\n' + fmtMoneyBn(oldInitial), 'green'),
+    rowHtml('১০', 'পার্থক্য (৮-৯খ)', fmtMoneyBn(difference), ''),
+    rowHtml('১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGradeBn(g) + '\n' + fmtMoneyBn(firstStep), 'green'),
+    rowHtml('১২', 'মোট বেতন (১০+১১খ)', fmtMoneyBn(firstStep + difference), 'green'),
+    rowHtml('১৩', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ', fmtMoneyBn(r.stepPay), 'blue'),
+    rowHtml('১৪', '১লা জুলাই ২০২৬ তারিখে একটি ইনক্রিমেন্ট সহ প্রকৃত মূল বেতন নির্ধারণ<br>(পে-স্কেলের ৯(২) ধারা মোতাবেক)', fmtMoneyBn(r.newPay), 'green'),
+    rowHtml('১৫', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে আহরিত মূল বেতনের<br>প্রার্থক্য (১৪-৯)', fmtMoneyBn(payableDifference), 'peach'),
+    rowHtml('১৬', '১/৭/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে)<br>ক) ৪০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৫০% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', pct16Val, ''),
+    rowHtml('১৭', '১/১/২০২৬ তারিখে আহরিত মূল বেতন (৮+১৬)', fmtMoneyBn(july2026), 'peach'),
+    rowHtml('১৮', '৩০/৬/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৬ অনুসারে)<br>ক) ৭০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৭৫% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', pct18Val, ''),
+    rowHtml('১৯', '০১/০১/২০২৭ তারিখে নির্ধারিত মূল বেতন (৮+১৮)', fmtMoneyBn(phase2Pay), 'lilac'),
+    rowHtml('২০', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১/৭/২০২৭ তারিখে নির্ধারিত শতভাগ মূল বেতন<br>(কলাম -১৪ অনুসারে) একটি ইনক্রিমেন্ট সহ', fmtMoneyBn(r.fullPay), ''),
+    rowHtml('২১', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncBn, 'green')
   ].join('');
 
   document.getElementById('officialBody').innerHTML = printRows;
 
   document.getElementById('auditBody').innerHTML = [
-    rowHtml('১', 'ক) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন গ্রেড<br>খ) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন স্কেল', bnGrade(g) + '\n' + betonScaleText(g), ''),
-    rowHtml('২', '১ জুলাই ২০২৬ তারিখে নির্ধারিত মূল বেতন', fmtMoney(july2026), ''),
-    rowHtml('৩', 'ক) ১ জানুয়ারি ২০২৭ তারিখে নির্ধারিত মূল বেতন<br>খ) ১ জুলাই ২০২৭ তারিখে নির্ধারিত মূল বেতন', fmtMoney(phase2Pay) + '\n' + fmtMoney(r.fullPay), ''),
-    rowHtml('৪', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncrement, '')
+    rowHtml('১', 'ক) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন গ্রেড<br>খ) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন স্কেল', bnGradeBn(g) + '\n' + toBn(betonScaleText(g)), ''),
+    rowHtml('২', '১ জুলাই ২০২৬ তারিখে নির্ধারিত মূল বেতন', fmtMoneyBn(july2026), ''),
+    rowHtml('৩', 'ক) ১ জানুয়ারি ২০২৭ তারিখে নির্ধারিত মূল বেতন<br>খ) ১ জুলাই ২০২৭ তারিখে নির্ধারিত মূল বেতন', fmtMoneyBn(phase2Pay) + '\n' + fmtMoneyBn(r.fullPay), ''),
+    rowHtml('৪', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncBn, '')
   ].join('');
 }
 
@@ -594,6 +640,7 @@ async function loadEmployee() {
     document.getElementById('phone').value = emp.phone || '';
     document.getElementById('nationalId').value = emp.nid || '';
 
+    // Grade is always chosen by the user (not auto-filled from Excel).
     gradeSel.value = '';
     populateSteps();
     const payText = loadedBasicPay != null ? (' · মূল বেতন ' + fmt(loadedBasicPay)) : '';
@@ -630,12 +677,49 @@ document.getElementById('joiningDate').addEventListener('input', compute);
 
 const savedTitle = document.title;
 function printForm() {
+  if (!gradeSel.value || stepSel.value === '') {
+    setStatus('আগে তথ্য আনুন ও গ্রেড নির্বাচন করুন, তারপর প্রিন্ট করুন।', 'warn');
+    return;
+  }
   document.title = ' ';
   window.print();
 }
 window.addEventListener('afterprint', () => { document.title = savedTitle; });
+
+async function downloadPdf() {
+  if (!gradeSel.value || stepSel.value === '') {
+    setStatus('আগে তথ্য আনুন ও গ্রেড নির্বাচন করুন, তারপর PDF ডাউনলোড করুন।', 'warn');
+    return;
+  }
+  if (typeof html2pdf === 'undefined') {
+    setStatus('PDF লাইব্রেরি লোড হয়নি। প্রিন্ট → Save as PDF ব্যবহার করুন।', 'error');
+    return;
+  }
+  const report = document.getElementById('officialReport');
+  const filename = 'BUTEX-Salary-Fixation-' + (currentSerial || 'form') + '.pdf';
+  setStatus('PDF তৈরি হচ্ছে…', '');
+  report.classList.add('pdf-render');
+  try {
+    await html2pdf().set({
+      margin: [10, 8, 10, 8],
+      filename: filename,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true, letterRendering: true, scrollY: 0 },
+      jsPDF: { unit: 'mm', format: 'legal', orientation: 'portrait' },
+      pagebreak: { mode: ['css', 'legacy'] }
+    }).from(report).save();
+    setStatus('PDF ডাউনলোড হয়েছে: ' + filename, '');
+  } catch (err) {
+    setStatus('PDF তৈরি ব্যর্থ। প্রিন্ট → Save as PDF চেষ্টা করুন।', 'error');
+  } finally {
+    report.classList.remove('pdf-render');
+  }
+}
+
 document.getElementById('printBtn').addEventListener('click', printForm);
 document.getElementById('navPrint').addEventListener('click', printForm);
+document.getElementById('downloadPdfBtn').addEventListener('click', downloadPdf);
+document.getElementById('navDownloadPdf').addEventListener('click', downloadPdf);
 
 gradeSel.value = '';
 populateSteps();

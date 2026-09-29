@@ -13,8 +13,12 @@ from app_paths import app_dir
 
 BASE_DIR = app_dir()
 
-# Only this file (plus optional BUTEX_EXCEL override).
-EXCEL_NAME = "Salary fixation Form.xlsx"
+# Preferred workbook names (plus optional BUTEX_EXCEL override).
+EXCEL_NAMES = (
+    "Salary fixation Form.xlsx",
+    "Salary fixation Form (2).xlsx",
+)
+EXCEL_NAME = EXCEL_NAMES[0]
 
 SCALES_OLD = {
     1: [78000],
@@ -56,11 +60,40 @@ def resolve_excel_path() -> Path:
             return path
         raise FileNotFoundError(f"BUTEX_EXCEL not found: {path}")
 
-    path = app_dir() / "data" / EXCEL_NAME
-    if path.is_file():
-        return path
+    root = app_dir()
+    data_dir = root / "data"
+    candidates: list[Path] = []
+
+    # Preferred fixed names in data/ then project root
+    for name in EXCEL_NAMES:
+        candidates.append(data_dir / name)
+    for name in EXCEL_NAMES:
+        candidates.append(root / name)
+
+    # Any other "Salary fixation*.xlsx" under data/ or root
+    for folder in (data_dir, root):
+        if folder.is_dir():
+            try:
+                candidates.extend(sorted(folder.glob("Salary fixation*.xlsx")))
+            except OSError:
+                pass
+
+    seen: set[Path] = set()
+    for path in candidates:
+        try:
+            resolved = path.resolve()
+        except OSError:
+            resolved = path
+        if resolved in seen:
+            continue
+        seen.add(resolved)
+        if path.is_file():
+            return path
+
+    expected = data_dir / EXCEL_NAME
     raise FileNotFoundError(
-        f"Excel file not found.\nPlace it here:\n{path}"
+        f"Excel file not found.\nPlace it here:\n{expected}\n"
+        f"(or: {data_dir / EXCEL_NAMES[1]})"
     )
 
 

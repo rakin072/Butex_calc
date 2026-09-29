@@ -22,10 +22,10 @@ if errorlevel 1 (
   exit /b 1
 )
 
-if not exist "data\Salary fixation Form.xlsx" (
+if not exist "data\Salary fixation Form.xlsx" if not exist "data\Salary fixation Form (2).xlsx" (
   echo.
-  echo WARNING: data\Salary fixation Form.xlsx not found.
-  echo Put your Excel file there, then run this again.
+  echo WARNING: Excel file not found in data\
+  echo Put: "Salary fixation Form.xlsx" or "Salary fixation Form (2).xlsx"
   echo.
 )
 

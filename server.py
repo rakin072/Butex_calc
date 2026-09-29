@@ -74,6 +74,7 @@ if __name__ == "__main__":
     except Exception as exc:
         print("Excel warning:", exc)
         print("Put the file at:", BASE_DIR / "data" / "Salary fixation Form.xlsx")
+        print("Or:", BASE_DIR / "data" / "Salary fixation Form (2).xlsx")
     print("Opening", URL)
     print("Keep this window open while using the app.")
     print("Close this window to stop the server.")
