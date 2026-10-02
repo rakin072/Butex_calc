@@ -155,21 +155,25 @@ footer{
 .official-report .official-table{width:100%; border-collapse:collapse; margin:0; table-layout:fixed;}
 .official-report .official-table td{
   border:1px solid #000; padding:3px 5px; vertical-align:middle; text-align:left;
-  font-size:11px;
+  font-size:11px; background:#fff; color:#000;
 }
 .official-report .official-table td.sl{width:28px; text-align:center; font-weight:700;}
 .official-report .official-table td.label{width:auto;}
-.official-report .official-table td.colon{width:16px; text-align:center;}
-.official-report .official-table td.val{width:150px; text-align:right; font-weight:600; white-space:pre-line;}
-.official-report .official-table td.val.left{text-align:left;}
+.official-report .official-table td.colon{
+  width:18px; padding:3px 0; text-align:center; vertical-align:middle;
+  font-weight:700; line-height:1;
+}
+.official-report .official-table td.val{width:150px; text-align:center; font-weight:600; white-space:pre-line;}
 .official-report .official-table tr.id-row td{font-weight:700;}
-.official-report .official-table tr.green td.val{background:#c6efce;}
-.official-report .official-table tr.blue td.val{background:#bdd7ee; color:#c00000;}
+.official-report .official-table tr.green td.val,
+.official-report .official-table tr.blue td.val,
 .official-report .official-table tr.peach td.val,
-.official-report .official-table tr.peach td.label{background:#fce4d6;}
-.official-report .official-table tr.pink td.val{background:#f8cbad;}
-.official-report .official-table tr.lilac td.val{background:#e2d5f1; color:#c00000;}
-.official-report .official-table tr.mark td.val{color:#c00000;}
+.official-report .official-table tr.peach td.label,
+.official-report .official-table tr.pink td.val,
+.official-report .official-table tr.lilac td.val,
+.official-report .official-table tr.mark td.val{
+  background:#fff; color:#000;
+}
 .official-report .employee-sign{text-align:right; margin:36px 8px 18px; font-size:12px;}
 .official-report .employee-sign span{display:inline-block; border-top:1px dotted #000; padding-top:6px; min-width:280px; text-align:center;}
 .official-report .official-signatures{
@@ -232,6 +236,8 @@ footer{
           <div><label for="department">বিভাগ/দপ্তর</label><input id="department" type="text" readonly></div>
           <div><label for="phone">মোবাইল/সেল ফোন</label><input id="phone" type="tel" readonly></div>
           <div><label for="nationalId">জাতীয় পরিচয়পত্র নম্বর</label><input id="nationalId" type="text" readonly></div>
+          <div><label for="tinNumber">টিআইএন নং</label><input id="tinNumber" type="text" inputmode="numeric" placeholder="টিআইএন নম্বর লিখুন"></div>
+          <div></div>
           <div>
             <label for="grade">প্রাপ্য গ্রেড</label>
             <select id="grade"></select>
@@ -530,6 +536,7 @@ function compute() {
   const dept = document.getElementById('department').value || '';
   const phone = document.getElementById('phone').value || '';
   const nid = document.getElementById('nationalId').value || '';
+  const tin = document.getElementById('tinNumber').value || '';
 
   document.getElementById('newPay').textContent = fmt(r.newPay);
   document.getElementById('stepBadge').textContent = r.stepText;
@@ -560,7 +567,7 @@ function compute() {
     ['৪', 'বিভাগ/দপ্তর', dept || '—', ''],
     ['৫', 'সেল ফোন নং', phone || '—', ''],
     ['৬', 'জাতীয় পরিচয় পত্র নং', nid || '—', ''],
-    ['৭', 'টিআই এন নং', '—', ''],
+    ['৭', 'টিআইএন নং', tin || '—', ''],
     ['৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত মূল বেতন', fmt(cur), 'highlight'],
     ['৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '<br>' + fmt(oldInitial), 'highlight'],
     ['১০', 'পার্থক্য (৮-৯খ)', fmt(difference), 'warm'],
@@ -585,13 +592,13 @@ function compute() {
   const nextIncBn = r.pctGroup === 'fixed' ? 'প্রযোজ্য নয়' : toBn('1/7/2028');
 
   const printRows = [
-    rowHtml('১', 'নাম', name, '', 'left'),
-    rowHtml('২', 'বর্তমান পদ (৩০-০৬-২০২৬)', post, '', 'left'),
-    rowHtml('৩', 'বর্তমান পদে যোগদানের তারিখ', joining ? toBn(joining) : '', '', 'left'),
-    rowHtml('৪', 'বিভাগ/দপ্তর', dept, '', 'left'),
-    rowHtml('৫', 'সেল ফোন নং', phone ? toBn(phone) : '', '', 'left'),
-    rowHtml('৬', 'জাতীয় পরিচয় পত্র নং', nid ? toBn(nid) : '', '', 'left'),
-    rowHtml('৭', 'টিআই এন নং', '', '', 'left'),
+    rowHtml('১', 'নাম', name, '', 'center'),
+    rowHtml('২', 'বর্তমান পদ (৩০-০৬-২০২৬)', post, '', 'center'),
+    rowHtml('৩', 'বর্তমান পদে যোগদানের তারিখ', joining ? toBn(joining) : '', '', 'center'),
+    rowHtml('৪', 'বিভাগ/দপ্তর', dept, '', 'center'),
+    rowHtml('৫', 'সেল ফোন নং', phone ? toBn(phone) : '', '', 'center'),
+    rowHtml('৬', 'জাতীয় পরিচয় পত্র নং', nid ? toBn(nid) : '', '', 'center'),
+    rowHtml('৭', 'টিআইএন নং', tin ? toBn(tin) : '', '', 'center'),
     rowHtml('৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত মূল বেতন', fmtMoneyBn(cur), 'green'),
     rowHtml('৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGradeBn(g) + '\n' + fmtMoneyBn(oldInitial), 'green'),
     rowHtml('১০', 'পার্থক্য (৮-৯খ)', fmtMoneyBn(difference), ''),
@@ -641,6 +648,8 @@ async function loadEmployee() {
     document.getElementById('department').value = emp.department || '';
     document.getElementById('phone').value = emp.phone || '';
     document.getElementById('nationalId').value = emp.nid || '';
+    document.getElementById('tinNumber').value = '';
+    document.getElementById('joiningDate').value = '';
 
     // Grade is always chosen by the user (not auto-filled from Excel).
     gradeSel.value = '';
@@ -676,6 +685,7 @@ document.getElementById('serialInput').addEventListener('keydown', e => {
 gradeSel.addEventListener('change', () => populateSteps());
 stepSel.addEventListener('change', compute);
 document.getElementById('joiningDate').addEventListener('input', compute);
+document.getElementById('tinNumber').addEventListener('input', compute);
 
 const savedTitle = document.title;
 function printForm() {
