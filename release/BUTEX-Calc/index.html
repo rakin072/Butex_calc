@@ -98,10 +98,32 @@ th{background:#f2f7f8; color:#5d7078; font-weight:600; text-align:left;}
 .statement-detail-table tr.highlight td:last-child{background:#eaf4dd;}
 .statement-detail-table tr.warm td:last-child{background:#f8e4ca;}
 .statement-detail-table tr.pink td:last-child{background:#f3dddd;}
+.statement-detail-table tr.blue td:last-child{background:#bdd7ee;}
 .actions{display:flex; justify-content:flex-end; flex-wrap:wrap; gap:8px; margin-top:14px;}
 footer{
-  margin-top:24px; padding:18px 4px 0; border-top:1px solid var(--border);
+  margin-top:28px; padding:20px 4px 18px; border-top:1px solid var(--border);
   font-size:12px; color:var(--text-muted); line-height:1.7;
+}
+.developer-credit{
+  margin-top:16px;
+  padding-top:14px;
+  border-top:1px dashed #e2e8f0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.developer-logo{
+  height:46px;
+  max-width:280px;
+  width:auto;
+  object-fit:contain;
+  mix-blend-mode:multiply;
+  opacity:0.95;
+  transition:all 0.2s ease;
+}
+.developer-logo:hover{
+  opacity:1;
+  transform:translateY(-1px);
 }
 .official-report{display:none;}
 .official-report.pdf-render{
@@ -180,7 +202,7 @@ footer{
   display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
   margin-top:56px; margin-bottom:12px; text-align:center; font-size:12px;
 }
-.official-report .official-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 18px;}
+.official-report .official-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 8px;}
 .official-report .audit-block{margin-top:48px; padding-top:10px;}
 .official-report .audit-title{
   text-align:center; font-size:14px; font-weight:700;
@@ -191,7 +213,7 @@ footer{
   display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
   margin-top:56px; text-align:center; font-size:12px;
 }
-.official-report .audit-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 18px;}
+.official-report .audit-signatures div{padding-top:8px; border-top:1px solid #000; margin:0 8px;}
 </style>
 </head>
 <body>
@@ -315,7 +337,7 @@ footer{
         <table class="official-table"><tbody id="officialBody"></tbody></table>
         <div class="employee-sign"><span>শিক্ষক/ কর্মকর্তা/কর্মচারীর স্বাক্ষর ও সীল</span></div>
         <div class="official-signatures">
-          <div>প্রস্তুতকারক</div>
+          <div>অডিট এন্ড অ্যাকাউন্টস অফিসার</div>
           <div>উপ-পরিচালক (স্যালারি)</div>
           <div>পরিচালক (অর্থ ও হিসাব)</div>
         </div>
@@ -324,7 +346,7 @@ footer{
           <p class="audit-note">উক্ত বেতন বিবরণী নিরীক্ষা করা হইল। জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী নিম্নরূপভাবে বেতন নির্ধারণ করা হইল</p>
           <table class="official-table"><tbody id="auditBody"></tbody></table>
           <div class="audit-signatures">
-            <div>প্রস্তুতকারক</div>
+            <div>অডিট এন্ড অ্যাকাউন্টস অফিসার</div>
             <div>সহ-পরিচালক (অডিট)</div>
             <div>উপ-পরিচালক (অডিট)</div>
           </div>
@@ -334,7 +356,12 @@ footer{
   </div>
 
   <footer>
-    সরকারি চাকরি আইন, ২০১৮-এর ধারা ১৫ বলে জারিকৃত "চাকরি (বেতন ও ভাতাদি) আদেশ, ২০২৬" (এসআরও নং ৩৪৮-আইন/২০২৬, তারিখ ১৭ সেপ্টেম্বর ২০২৬) অনুযায়ী হিসাব করা হয়েছে। কর্মকর্তা/কর্মচারীর তথ্য এক্সেল তথ্যসূত্র (Information) থেকে নেওয়া। প্রকৃত বেতন নির্ধারণের জন্য অফিসের হিসাব শাখা/iBAS++ দিয়ে যাচাই করে নিন — এটি সহায়ক হিসাব, চূড়ান্ত সিদ্ধান্ত নয়।
+    <div>
+      সরকারি চাকরি আইন, ২০১৮-এর ধারা ১৫ বলে জারিকৃত "চাকরি (বেতন ও ভাতাদি) আদেশ, ২০২৬" (এসআরও নং ৩৪৮-আইন/২০২৬, তারিখ ১৭ সেপ্টেম্বর ২০২৬) অনুযায়ী হিসাব করা হয়েছে। কর্মকর্তা/কর্মচারীর তথ্য এক্সেল তথ্যসূত্র (Information) থেকে নেওয়া। প্রকৃত বেতন নির্ধারণের জন্য অফিসের হিসাব শাখা/iBAS++ দিয়ে যাচাই করে নিন — এটি সহায়ক হিসাব, চূড়ান্ত সিদ্ধান্ত নয়।
+    </div>
+    <div class="developer-credit">
+      <img src="images/developer-logo.png" alt="Developed by Omar Faruk Rakin - KUET CSE" class="developer-logo">
+    </div>
   </footer>
 </div>
 
@@ -372,6 +399,20 @@ const fmtMoneyBn = n => toBn(fmtMoney(n));
 const fmtScaleBn = n => toBn(fmtScale(n));
 const bnGrade = g => 'গ্রেড - ' + g;
 const bnGradeBn = g => 'গ্রেড - ' + toBn(g);
+
+function scaleRangeOldBn(grade) {
+  const s = SCALES[grade];
+  if (!s || !s.old || !s.old.length) return '';
+  if (s.fixed || s.old.length === 1) return toBn(s.old[0]);
+  return toBn(s.old[0]) + ' - ' + toBn(s.old[s.old.length - 1]);
+}
+
+function scaleRangeNewBn(grade) {
+  const s = SCALES[grade];
+  if (!s || !s.new || !s.new.length) return '';
+  if (s.fixed || s.new.length === 1) return toBn(s.new[0]);
+  return toBn(s.new[0]) + ' - ' + toBn(s.new[s.new.length - 1]);
+}
 
 /** Full 2026 pay-scale range for a grade (min–max of new scale steps). */
 function betonScaleText(grade) {
@@ -516,20 +557,29 @@ function compute() {
   const s = SCALES[g];
   const cur = s.fixed ? s.old[0] : s.old[idx];
   const r = fixPay(g, idx);
-  const inc = r.newPay - cur;
+  const oldInitial = s.old[0];
+  const firstStep = s.new[0];
+  const difference = cur - oldInitial;
+  const total12 = firstStep + difference;
+  const stepPay = r.stepPay;
+  const newPay = r.newPay;
+  const inc15 = s.fixed ? 0 : (stepPay - cur);
+  const inc = newPay - cur;
   const pctInc = cur ? ((inc / cur) * 100).toFixed(1) : '0.0';
   const useHigh = r.pctGroup === 'high' || r.pctGroup === 'fixed';
   const p1 = useHigh ? 0.40 : 0.50;
   const p2 = useHigh ? 0.70 : 0.75;
-  const pctAmt1 = r.pctGroup === 'fixed' ? 0 : Math.round(inc * p1);
-  const pctAmt2 = r.pctGroup === 'fixed' ? 0 : Math.round(inc * p2);
-  const july2026 = r.pctGroup === 'fixed' ? r.newPay : Math.round(cur + inc * p1);
-  const phase2Pay = r.pctGroup === 'fixed' ? r.newPay : Math.round(cur + inc * p2);
-  const nextIncrement = r.pctGroup === 'fixed' ? 'প্রযোজ্য নয়' : '১/৭/২০২৮';
-  const firstStep = s.new[0];
-  const oldInitial = s.old[0];
-  const difference = cur - oldInitial;
-  const payableDifference = r.newPay - cur;
+  const pctAmt1 = s.fixed ? 0 : Math.round(inc15 * p1);
+  const pctAmt2 = s.fixed ? 0 : Math.round(inc15 * p2);
+  const row18 = s.fixed ? cur : (cur + pctAmt1);
+  const row19 = s.fixed ? 0 : (newPay - stepPay);
+  const row20 = s.fixed ? newPay : (cur + pctAmt1 + row19);
+  const row21 = s.fixed ? newPay : (cur + pctAmt2 + row19);
+  const row22 = newPay;
+  const row23 = r.fullPay;
+  const nextIncrement = s.fixed ? 'প্রযোজ্য নয়' : '১/৭/২০২৮';
+  const nextIncBn = s.fixed ? 'প্রযোজ্য নয়' : toBn('1/7/2028');
+
   const name = document.getElementById('employeeName').value || '';
   const post = document.getElementById('currentPost').value || '';
   const joining = displayDate(document.getElementById('joiningDate').value);
@@ -538,7 +588,7 @@ function compute() {
   const nid = document.getElementById('nationalId').value || '';
   const tin = document.getElementById('tinNumber').value || '';
 
-  document.getElementById('newPay').textContent = fmt(r.newPay);
+  document.getElementById('newPay').textContent = fmt(newPay);
   document.getElementById('stepBadge').textContent = r.stepText;
   document.getElementById('metricCurrent').textContent = fmt(cur);
   document.getElementById('metricGrade').textContent = bnGrade(g);
@@ -547,18 +597,21 @@ function compute() {
     : 'বৃদ্ধি প্রযোজ্য নয় (নির্ধারিত হার)';
 
   if (r.pctGroup === 'fixed') {
-    document.getElementById('phase1').textContent = fmt(r.newPay);
-    document.getElementById('phase2').textContent = fmt(r.newPay);
-    document.getElementById('phase3').textContent = fmt(r.fullPay);
+    document.getElementById('phase1').textContent = fmt(newPay);
+    document.getElementById('phase2').textContent = fmt(newPay);
+    document.getElementById('phase3').textContent = fmt(row23);
     document.getElementById('pctNote').textContent = 'এই গ্রেডে নির্ধারিত (fixed) বেতন হওয়ায় ধাপভিত্তিক আংশিক বৃদ্ধি প্রযোজ্য নয়; ১ জুলাই ২০২৬ থেকেই পূর্ণ হারে কার্যকর।';
   } else {
-    document.getElementById('phase1').textContent = fmt(july2026);
-    document.getElementById('phase2').textContent = fmt(phase2Pay);
-    document.getElementById('phase3').textContent = fmt(r.fullPay);
+    document.getElementById('phase1').textContent = fmt(row20);
+    document.getElementById('phase2').textContent = fmt(row21);
+    document.getElementById('phase3').textContent = fmt(row23);
     document.getElementById('pctNote').textContent = 'অনুচ্ছেদ অনুযায়ী গ্রেড ' + g + ' (' + (g <= 9 ? '৯ম ও তদূর্ধ্ব' : '১০ম–২০তম') + ') এর জন্য বৃদ্ধির অংশ: ১ম ধাপে ' + (p1 * 100) + '%, ২য় ধাপে ' + (p2 * 100) + '% (ক্রমপুঞ্জিত), ৩য় ধাপে ১০০%।';
   }
   document.getElementById('metricJuly').textContent = document.getElementById('phase1').textContent;
   document.getElementById('metricFull').textContent = document.getElementById('phase3').textContent;
+
+  const screenPct16Val = useHigh ? (fmt(pctAmt1) + '<br>') : ('<br>' + fmt(pctAmt1));
+  const screenPct17Val = useHigh ? (fmt(pctAmt2) + '<br>') : ('<br>' + fmt(pctAmt2));
 
   const screenRows = [
     ['১', 'নাম', name || '—', ''],
@@ -569,27 +622,29 @@ function compute() {
     ['৬', 'জাতীয় পরিচয় পত্র নং', nid || '—', ''],
     ['৭', 'টিআইএন নং', tin || '—', ''],
     ['৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত মূল বেতন', fmt(cur), 'highlight'],
-    ['৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '<br>' + fmt(oldInitial), 'highlight'],
-    ['১০', 'পার্থক্য (৮-৯খ)', fmt(difference), 'warm'],
-    ['১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGrade(g) + '<br>' + fmt(firstStep), 'highlight'],
-    ['১২', 'মোট বেতন (১০+১১খ)', fmt(firstStep + difference), 'highlight'],
-    ['১৩', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ', fmt(r.stepPay), 'highlight'],
-    ['১৪', '১লা জুলাই ২০২৬ তারিখে একটি ইনক্রিমেন্ট সহ প্রকৃত মূল বেতন নির্ধারণ<br>(পে-স্কেলের ৯(২) ধারা মোতাবেক)', fmt(r.newPay), 'highlight'],
-    ['১৫', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে আহরিত মূল বেতনের প্রার্থক্য (১৪-৯)', fmt(payableDifference), 'warm'],
-    ['১৬', '১/৭/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে)<br>ক) ৪০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৫০% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', fmt(pctAmt1), ''],
-    ['১৭', '১/৭/২০২৬ তারিখে আহরিত মূল বেতন (৮+১৬)', fmt(july2026), 'warm'],
-    ['১৮', '৩০/৬/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৬ অনুসারে)<br>ক) ৭০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৭৫% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', fmt(pctAmt2), ''],
-    ['১৯', '০১/০১/২০২৭ তারিখে নির্ধারিত মূল বেতন (৮+১৮)', fmt(phase2Pay), 'pink'],
-    ['২০', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১/৭/২০২৭ তারিখে নির্ধারিত শতভাগ মূল বেতন (কলাম-১৪ অনুসারে) একটি ইনক্রিমেন্ট সহ', fmt(r.fullPay), 'highlight'],
-    ['২১', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncrement, 'highlight']
+    ['৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্ত গ্রেড/উচ্চতর গ্রেড ও স্কেল<br>খ) প্রাপ্ত গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGradeBn(g) + '<br>' + scaleRangeOldBn(g) + '<br>' + fmt(oldInitial), 'highlight'],
+    ['১০', 'পার্থক্য (৮-৯খ)', fmt(difference), ''],
+    ['১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড ও স্কেল<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGradeBn(g) + '<br>' + scaleRangeNewBn(g) + '<br>' + fmt(firstStep), 'highlight'],
+    ['১২', 'মোট বেতন (১০+১১খ)', fmt(total12), ''],
+    ['১৩', '০১/০৭/২০২৬ তারিখে প্রাপ্য বেতনের ধাপ (বেতন স্কেল ২০২৬)', fmt(stepPay), 'blue'],
+    ['১৪', '০১/০৭/২০২৬ তারিখে বার্ষিক বেতন বৃদ্ধি (ইনক্রিমেন্ট) সহ বেতন<br>[জাতীয় বেতন স্কেল-২০২৬ এর ৮(২) ধারা মোতাবেক]', fmt(newPay), 'highlight'],
+    ['১৫', 'বেতন বৃদ্ধির পরিমাণ (১৩-৮)', fmt(inc15), 'warm'],
+    ['১৬', '০১/০৭/২০২৬ তারিখে বৃদ্ধি প্রাপ্ত বেতনের (কলাম ১৫ অনুসারে)<br>ক) ৪০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৫০% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', screenPct16Val, ''],
+    ['১৭', '০১/০১/২০২৭ তারিখে বৃদ্ধি প্রাপ্ত বেতনের (কলাম ১৫ অনুসারে)<br>ক) পরবর্তী ৭০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) পরবর্তী ৭৫% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', screenPct17Val, ''],
+    ['১৮', '০১/০৭/২০২৬ তারিখে নির্ধারিত বেতন (৮+১৬)', fmt(row18), 'warm'],
+    ['১৯', '০১/০৭/২০২৬ তারিখে বার্ষিক বেতন বৃদ্ধির হার (১৪ নং - ১৩ নং)', fmt(row19), ''],
+    ['২০', '০১/০৭/২০২৬ তারিখে বার্ষিক বেতন বৃদ্ধি সহ প্রাপ্য বেতন (৮+১৬+১৯)', fmt(row20), 'pink'],
+    ['২১', '০১/০১/২০২৭ তারিখে বার্ষিক বেতন বৃদ্ধি সহ প্রাপ্য বেতন (৮+১৭+১৯)', fmt(row21), 'pink'],
+    ['২২', '০১/০৭/২০২৬ তারিখে নির্ধারিত বেতন ১০০%', fmt(row22), ''],
+    ['২৩', '০১/৭/২০২৭ তারিখে বার্ষিক বেতন বৃদ্ধি (ইনক্রিমেন্ট) সহ প্রাপ্য বেতন', fmt(row23), ''],
+    ['২৪', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncrement, 'highlight']
   ];
   document.getElementById('statementBody').innerHTML = screenRows.map(row =>
     '<tr class="' + row[3] + '"><td>' + row[0] + '</td><td>' + row[1] + '</td><td>' + row[2] + '</td></tr>'
   ).join('');
 
   const pct16Val = useHigh ? (fmtMoneyBn(pctAmt1) + '\n') : ('\n' + fmtMoneyBn(pctAmt1));
-  const pct18Val = useHigh ? (fmtMoneyBn(pctAmt2) + '\n') : ('\n' + fmtMoneyBn(pctAmt2));
-  const nextIncBn = r.pctGroup === 'fixed' ? 'প্রযোজ্য নয়' : toBn('1/7/2028');
+  const pct17Val = useHigh ? (fmtMoneyBn(pctAmt2) + '\n') : ('\n' + fmtMoneyBn(pctAmt2));
 
   const printRows = [
     rowHtml('১', 'নাম', name, '', 'center'),
@@ -599,28 +654,31 @@ function compute() {
     rowHtml('৫', 'সেল ফোন নং', phone ? toBn(phone) : '', '', 'center'),
     rowHtml('৬', 'জাতীয় পরিচয় পত্র নং', nid ? toBn(nid) : '', '', 'center'),
     rowHtml('৭', 'টিআইএন নং', tin ? toBn(tin) : '', '', 'center'),
-    rowHtml('৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত মূল বেতন', fmtMoneyBn(cur), 'green'),
-    rowHtml('৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGradeBn(g) + '\n' + fmtMoneyBn(oldInitial), 'green'),
+    rowHtml('৮', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে গৃহীত বেতন', fmtMoneyBn(cur), 'green'),
+    rowHtml('৯', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে (বর্তমানে)<br>ক) প্রাপ্ত গ্রেড/উচ্চতর গ্রেড ও স্কেল<br>খ) প্রাপ্ত গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGradeBn(g) + '\n' + scaleRangeOldBn(g) + '\n' + fmtMoneyBn(oldInitial), 'green'),
     rowHtml('১০', 'পার্থক্য (৮-৯খ)', fmtMoneyBn(difference), ''),
-    rowHtml('১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGradeBn(g) + '\n' + fmtMoneyBn(firstStep), 'green'),
-    rowHtml('১২', 'মোট বেতন (১০+১১খ)', fmtMoneyBn(firstStep + difference), 'green'),
-    rowHtml('১৩', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ১ জুলাই ২০২৬ তারিখে প্রাপ্য বেতনের ধাপ', fmtMoneyBn(r.stepPay), 'blue'),
-    rowHtml('১৪', '১লা জুলাই ২০২৬ তারিখে একটি ইনক্রিমেন্ট সহ প্রকৃত মূল বেতন নির্ধারণ<br>(পে-স্কেলের ৯(২) ধারা মোতাবেক)', fmtMoneyBn(r.newPay), 'green'),
-    rowHtml('১৫', 'জাতীয় বেতন স্কেল ২০১৫ অনুযায়ী ৩০ জুন ২০২৬ তারিখে আহরিত মূল বেতনের<br>প্রার্থক্য (১৪-৯)', fmtMoneyBn(payableDifference), 'peach'),
-    rowHtml('১৬', '১/৭/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৫ অনুসারে)<br>ক) ৪০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৫০% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', pct16Val, ''),
-    rowHtml('১৭', '১/৭/২০২৬ তারিখে আহরিত মূল বেতন (৮+১৬)', fmtMoneyBn(july2026), 'peach'),
-    rowHtml('১৮', '৩০/৬/২০২৬ তারিখে আহরিত মূল বেতনের (কলাম ১৬ অনুসারে)<br>ক) ৭০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৭৫% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', pct18Val, ''),
-    rowHtml('১৯', '০১/০১/২০২৭ তারিখে নির্ধারিত মূল বেতন (৮+১৮)', fmtMoneyBn(phase2Pay), 'lilac'),
-    rowHtml('২০', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১/৭/২০২৭ তারিখে নির্ধারিত শতভাগ মূল বেতন<br>(কলাম -১৪ অনুসারে) একটি ইনক্রিমেন্ট সহ', fmtMoneyBn(r.fullPay), ''),
-    rowHtml('২১', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncBn, 'green')
+    rowHtml('১১', 'জাতীয় বেতন স্কেল ২০২৬ অনুযায়ী ০১ জুলাই ২০২৬ তারিখে<br>ক) প্রাপ্য গ্রেড/উচ্চতর গ্রেড ও স্কেল<br>খ) প্রাপ্য গ্রেড/উচ্চতর গ্রেডের প্রারম্ভিক বেতন', bnGradeBn(g) + '\n' + scaleRangeNewBn(g) + '\n' + fmtMoneyBn(firstStep), 'green'),
+    rowHtml('১২', 'মোট বেতন (১০+১১খ)', fmtMoneyBn(total12), ''),
+    rowHtml('১৩', '০১/০৭/২০২৬ তারিখে প্রাপ্য বেতনের ধাপ (বেতন স্কেল ২০২৬)', fmtMoneyBn(stepPay), 'blue'),
+    rowHtml('১৪', '০১/০৭/২০২৬ তারিখে বার্ষিক বেতন বৃদ্ধি (ইনক্রিমেন্ট) সহ বেতন<br>[জাতীয় বেতন স্কেল-২০২৬ এর ৮(২) ধারা মোতাবেক]', fmtMoneyBn(newPay), 'green'),
+    rowHtml('১৫', 'বেতন বৃদ্ধির পরিমাণ (১৩-৮)', fmtMoneyBn(inc15), 'peach'),
+    rowHtml('১৬', '০১/০৭/২০২৬ তারিখে বৃদ্ধি প্রাপ্ত বেতনের (কলাম ১৫ অনুসারে)<br>ক) ৪০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) ৫০% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', pct16Val, ''),
+    rowHtml('১৭', '০১/০১/২০২৭ তারিখে বৃদ্ধি প্রাপ্ত বেতনের (কলাম ১৫ অনুসারে)<br>ক) পরবর্তী ৭০% (১ম হতে ৯ম গ্রেডের জন্য)<br>খ) পরবর্তী ৭৫% (১০ম গ্রেড হতে ২০ তম গ্রেডের জন্য)', pct17Val, ''),
+    rowHtml('১৮', '০১/০৭/২০২৬ তারিখে নির্ধারিত বেতন (৮+১৬)', fmtMoneyBn(row18), 'peach'),
+    rowHtml('১৯', '০১/০৭/২০২৬ তারিখে বার্ষিক বেতন বৃদ্ধির হার (১৪ নং - ১৩ নং)', fmtMoneyBn(row19), ''),
+    rowHtml('২০', '০১/০৭/২০২৬ তারিখে বার্ষিক বেতন বৃদ্ধি সহ প্রাপ্য বেতন (৮+১৬+১৯)', fmtMoneyBn(row20), 'pink'),
+    rowHtml('২১', '০১/০১/২০২৭ তারিখে বার্ষিক বেতন বৃদ্ধি সহ প্রাপ্য বেতন (৮+১৭+১৯)', fmtMoneyBn(row21), 'pink'),
+    rowHtml('২২', '০১/০৭/২০২৬ তারিখে নির্ধারিত বেতন ১০০%', fmtMoneyBn(row22), ''),
+    rowHtml('২৩', '০১/৭/২০২৭ তারিখে বার্ষিক বেতন বৃদ্ধি (ইনক্রিমেন্ট) সহ প্রাপ্য বেতন', fmtMoneyBn(row23), ''),
+    rowHtml('২৪', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncBn, 'green')
   ].join('');
 
   document.getElementById('officialBody').innerHTML = printRows;
 
   document.getElementById('auditBody').innerHTML = [
-    rowHtml('১', 'ক) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন গ্রেড<br>খ) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন স্কেল', bnGradeBn(g) + '\n' + toBn(betonScaleText(g)), ''),
-    rowHtml('২', '১ জুলাই ২০২৬ তারিখে নির্ধারিত মূল বেতন', fmtMoneyBn(july2026), ''),
-    rowHtml('৩', 'ক) ১ জানুয়ারি ২০২৭ তারিখে নির্ধারিত মূল বেতন<br>খ) ১ জুলাই ২০২৭ তারিখে নির্ধারিত মূল বেতন', fmtMoneyBn(phase2Pay) + '\n' + fmtMoneyBn(r.fullPay), ''),
+    rowHtml('১', 'ক) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন গ্রেড<br>খ) ১ জুলাই ২০২৬ তারিখে নির্ধারিত বেতন স্কেল', bnGradeBn(g) + '\n' + scaleRangeNewBn(g), ''),
+    rowHtml('২', '১ জুলাই ২০২৬ তারিখে নির্ধারিত মূল বেতন', fmtMoneyBn(row20), ''),
+    rowHtml('৩', 'ক) ১ জানুয়ারি ২০২৭ তারিখে নির্ধারিত মূল বেতন<br>খ) ১ জুলাই ২০২৭ তারিখে নির্ধারিত মূল বেতন', fmtMoneyBn(row21) + '\n' + fmtMoneyBn(row23), ''),
     rowHtml('৪', 'পরবর্তী বার্ষিক বেতন বৃদ্ধির তারিখ', nextIncBn, '')
   ].join('');
 }
